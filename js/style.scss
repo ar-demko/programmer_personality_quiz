@@ -1,16 +1,22 @@
+* {
+	box-sizing : border-box;
+}
+
 body {
-	background: green;
+	// background: #ffd54f;
+	background: #F7D65D;
 	font-family: 'Raleway', 'Arial', sans-serif;
 }
 
 p {
-	color: yellow;
+	color: #2A7E77;
 	font-size: 3em;
 	text-align: center;
 }
 
 h1 {
 	font-size: 5em;
+	color: #00838f;
 	text-transform: uppercase;
 	text-align: center;
 }

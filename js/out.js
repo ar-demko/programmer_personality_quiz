@@ -11360,7 +11360,7 @@ exports = module.exports = __webpack_require__(86)();
 
 
 // module
-exports.push([module.i, "body {\n  background: green;\n  font-family: 'Raleway', 'Arial', sans-serif; }\n\np {\n  color: yellow;\n  font-size: 3em;\n  text-align: center; }\n\nh1 {\n  font-size: 5em;\n  text-transform: uppercase;\n  text-align: center; }\n", ""]);
+exports.push([module.i, "body {\n  background: #F7D65D;\n  font-family: 'Raleway', 'Arial', sans-serif; }\n\np {\n  color: #2A7E77;\n  font-size: 3em;\n  text-align: center; }\n\nh1 {\n  font-size: 5em;\n  color: #00838f;\n  text-transform: uppercase;\n  text-align: center; }\n", ""]);
 
 // exports
 
