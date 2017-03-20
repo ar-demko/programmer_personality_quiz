@@ -1,7 +1,7 @@
 module.exports = [
   {
     id: 1,
-    question: 'Jak reagujesz, gdy ktoś krytykuje / poprawia twój kod?',
+    question: 'Jak reagujesz, gdy ktoś krytykuje lub poprawia twój kod?',
     answers: [
       {
         type: 'MacGyver',
@@ -171,7 +171,7 @@ module.exports = [
       },
       {
         type: 'Programista Spaghetti',
-        content: 'Kodowanie jest złożone i pełne niespodzianek - nie możesz podać szacunków.'
+        content: 'Kodowanie jest tak złożone i pełne niespodzianek - nie możesz podać szacunków.'
       }
     ]
   },

@@ -69,14 +69,16 @@ h1 {
 
 .question {
 	width: 940px;
-	font-size: 3rem;
-	color: #091B1A;
-	// text-transform: uppercase;
+	font-size: 2.5rem;
+	color: #164041;
+	text-transform: uppercase;
 	text-align: center;
 	font-weight: normal;
 	line-height: 4rem;
 	margin: 40px 0;
 	position: absolute;
+	font-weight: bold;
+	letter-spacing: 4px;
 }
 
 .answers {
@@ -117,6 +119,7 @@ ul.answer li:active {
 	font-size: 2rem;
 	background-color: #00838f;
 	box-shadow: 0 2px #004F57;
+	border: 1px solid #00838f;
 	padding: 20px;
 	margin: 5px 0;
 	cursor: pointer;
@@ -125,7 +128,7 @@ ul.answer li:active {
 	}
 	&:active {
 		background-color: #009FAD;;
-	  transform: translateY(1px);
+	  transform: translateY(2px);
 	}
 }
 
