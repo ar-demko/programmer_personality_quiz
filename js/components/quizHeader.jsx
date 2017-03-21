@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 
 import questions from './quizQuestions';
 
-console.log(questions[0].id);
-console.log(questions[0].question);
-console.log(questions[0].answers);
-
+// console.log(questions[0].id);
+// console.log(questions[0].question);
+// console.log(questions[0].answers);
 
 
 export class QuizHeader extends React.Component{
@@ -14,18 +13,32 @@ export class QuizHeader extends React.Component{
     super(props);
     this.state = {
       questionsList: questions,
-      counter: 0
+      counter: 0,
+      answersCount: {
+        programmer1: 0,
+        programmer2: 0,
+        programmer3: 0,
+        programmer4: 0
+      }
     }
   }
+
+  // handleClickAnswer = () => {
+  //   if (this.state.counter < 8) {
+  //     setTimeout(() => this.setState({counter: this.state.counter + 1}), 2000);
+  //   } else {
+  //     setTimeout(() => this.setState({counter: 0}), 300);
+  //   }
+  // }
   // handleClickButton = () => {
   //   this.setState({counter: this.state.counter + 1})
   // }
 
-  render(){
-    // console.log(questions);
-    const questionOption = questions[this.state.counter];
-    const answerOptions = questions[this.state.counter].answers;
-    console.log(answerOptions);
+render(){
+  // console.log(questions);
+  const questionOption = questions[this.state.counter];
+  const answerOptions = questions[this.state.counter].answers;
+  if (this.state.counter < 8) {
     return <div>
       <header>
         <p className='counter-question'>{this.state.counter + 1} z 8</p>
@@ -39,8 +52,50 @@ export class QuizHeader extends React.Component{
         })}
       </div>
     </div>
+  } else {
+    return <div className='result-box' >
+      <div className='result' >{answerOptions.map((resultOption, i) => {
+          return <p key={i}>{resultOption.type}</p>
+        })}
+      </div>
+    </div>
   }
+
 }
+}
+
+
+
+
+/*
+
+to działa
+
+render(){
+  // console.log(questions);
+  const questionOption = questions[this.state.counter];
+  const answerOptions = questions[this.state.counter].answers;
+  console.log(answerOptions);
+  return <div>
+    <header>
+      <p className='counter-question'>{this.state.counter + 1} z 8</p>
+      <h2 className='question'><span key={questionOption.id}>{questionOption.question}</span></h2>
+    </header>
+    <div className='answers' >{answerOptions.map((answerOption, i) => {
+        console.log(answerOption);
+        return <button className='buttonAnswer' key={i} onClick={() => {
+          this.setState({counter: this.state.counter + 1})
+        }}>{answerOption.content}</button>
+      })}
+    </div>
+  </div>
+}
+}
+*/
+
+
+
+
 
 // <h2 className='question'>{questions.map((el) => {
 //     return <span key={el.id}>{el.question}</span>
