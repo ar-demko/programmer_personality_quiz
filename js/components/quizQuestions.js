@@ -175,26 +175,4 @@ module.exports = [
       }
     ]
   },
-  {
-    id: 9,
-    question: 'Klientowi zależy na czasie i prosi cię o podanie terminu wykonania taska',
-    answers: [
-      {
-        type: 'programmer2',
-        content: 'Myślisz tydzień, mówisz dwa - nie idziesz na jakościowe kompromisy.'
-      },
-      {
-        type: 'programmer4',
-        content: 'Na początku wymieniasz kilka problemów, aby ubić zadanie.'
-      },
-      {
-        type: 'programmer1',
-        content: 'Mówisz to, co chce usłyszeć klient.'
-      },
-      {
-        type: 'programmer3',
-        content: 'Kodowanie jest tak złożone i pełne niespodzianek - nie możesz podać szacunków.'
-      }
-    ]
-  },
 ];
