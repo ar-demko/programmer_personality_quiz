@@ -2,28 +2,36 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import questions from './quizQuestions';
 
-export class Result extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      questionsList: questions,
-      counter: 0,
-      answersCount: {
-        programmer1: 0,
-        programmer2: 0,
-        programmer3: 0,
-        programmer4: 0
-      },
-      result: ''
-    }
-  }
+class Result extends React.Component {
+
   render(){
-    const answerOptions = questions[this.state.counter].answers;
-    return <div className='quiz' >
-      <div className='result' >{answerOptions.map((resultOption, i) => {
-          return <p key={i}>{resultOption.type}</p>
-        })}
-      </div>
+    return <div className='quiz-result' >
+      <div className='img-result'></div>
+      <h2>Twój typ to:</h2>
+      <h1>Programista Spaghetti</h1>
+      <p>
+        Non-stop idziesz na skróty, by zmieścić się w terminach.
+        Jesteś jedną z najbardziej produktywnych osób w zespole.
+        Niestety...
+        braki w dokumentacji i nieprzetestowane kody sprawiają, że już po
+        miesiącu zaczynasz się gubić… W dłuższej współpracy stwarzasz więcej problemów,
+        ale wciąż radzisz sobie dobrze z deadline’ami. Najgorzej układa ci się współpraca z Perfekcjonistą.
+      </p>
     </div>
   }
 }
+
+export {Result}
+
+/*
+  render(){
+    return <div className='quiz-result' >
+      <div className='img-result'></div>
+      <h1>
+        Twój typ to:<br></br>
+      <strong>{this.props.quizResult}!</strong>
+      </h1>
+    </div>
+  }
+}
+*/

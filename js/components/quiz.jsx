@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import questions from './quizQuestions';
+import {Result} from './result.jsx';
 
 export class Quiz extends React.Component {
   constructor(props){
@@ -16,6 +17,7 @@ export class Quiz extends React.Component {
         programmer3: 0,
         programmer4: 0
       },
+      answer: '',
       result: ''
     }
   }
@@ -27,36 +29,76 @@ export class Quiz extends React.Component {
       <p>Sprawdź się - rozwiąż Quiz!</p>
       <button className='start-button' onClick={() => {
         if (this.state.hidePrev == 'visible') {
-          this.setState({hidePrev: 'hidden'})
-          this.setState({showNext: 'visible'})
+          setTimeout(() => this.setState({hidePrev: 'hidden'}), 300)
+          setTimeout(() => this.setState({showNext: 'visible'}), 300)
         }
       }}>Start</button>
     </div>
   }
 
+  setUserAnswer(answer) {
+    const updatedAnswersCount = update(this.state.answersCount, {
+      [answer]: {$apply: (currentValue) => currentValue + 1}
+    });
+
+    this.setState({
+        answersCount: updatedAnswersCount,
+        answer: answer
+    });
+  }
+
+  getResults() {
+   const answersCount = this.state.answersCount;
+   const answersCountKeys = Object.keys(answersCount);
+   const answersCountValues = answersCountKeys.map((key) => answersCount[key]);
+   const maxAnswerCount = Math.max.apply(null, answersCountValues);
+   return answersCountKeys.filter((key) => answersCount[key] === maxAnswerCount);
+   console.log(answersCountKeys);
+   console.log(getResults());
+ }
+
+ setResults(result) {
+   if (result.length === 1) {
+     this.setState({ result: result[0] });
+   } else {
+     this.setState({ result: 'Undetermined' });
+   }
+ }
+
+
   render(){
-    console.log(questionOption);
-    const questionOption = questions[this.state.counter];
-    const answerOptions = questions[this.state.counter].answers;
-    if (this.state.hidePrev == 'visible') {
+
+    console.log("counter", this.state.counter);
+    console.log('wynik', this.state.result);
+
+    if (this.state.hidePrev == 'visible' ) {
       return <div>{this.intro()}</div>
-    } else {
+    } else if (this.state.counter < questions.length) {
+        const questionOption = questions[this.state.counter];
+        const answerOptions = questions[this.state.counter].answers;
       return <div className='quiz' style={{visibility: this.state.showNext}}>
         <div className='quiz-header'>
-          <p className='counter-question'>{this.state.counter + 1} z 8</p>
+          <p className='counter-question'>pytanie {this.state.counter + 1} z 8</p>
           <h2 className='question'><span key={questionOption.id}>{questionOption.question}</span></h2>
         </div>
         <div className='answers' >{answerOptions.map((answerOption, i) => {
-            console.log(answerOption);
+            // console.log(answerOption);
             return <button className='button-answer' key={i} onClick={() => {
-              this.setState({counter: this.state.counter + 1})
+              setTimeout(() => this.setState({counter: this.state.counter + 1}), 300);
             }}>{answerOption.content}</button>
           })}
         </div>
       </div>
+    } else {
+      return <div><Result quizResult={this.state.result}/></div>
     }
   }
 }
+
+
+// handleClickAnswer = () => {
+//   setTimeout(() => this.setState({counter: this.state.counter + 1}), 2000);
+// }
 
 /*
 render(){

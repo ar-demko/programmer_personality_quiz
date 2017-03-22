@@ -5,6 +5,7 @@ import './style.scss';
 
 import questions from './components/quizQuestions';
 import {Quiz} from './components/quiz.jsx';
+import {Result} from './components/result.jsx';
 // import {Intro} from './components/intro.jsx';
 
 class App extends React.Component{
