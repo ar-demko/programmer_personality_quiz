@@ -22,6 +22,16 @@ export class Quiz extends React.Component {
     }
   }
 
+  answersCount = {
+      programmer1: 0,
+      programmer2: 0,
+      programmer3: 0,
+      programmer4: 0
+  };
+
+
+
+
   intro(){
     return <div className='quiz-intro' style={{visibility: this.state.hidePrev}}>
       <div className='img-intro'></div>
@@ -36,34 +46,33 @@ export class Quiz extends React.Component {
     </div>
   }
 
-  setUserAnswer(answer) {
-    const updatedAnswersCount = update(this.state.answersCount, {
-      [answer]: {$apply: (currentValue) => currentValue + 1}
-    });
+/*
+  types = ['MacGyver', 'Perfekcyjny Perfekcjonista', 'Pan Nie da się', 'Programista Spaghetti'];
 
-    this.setState({
-        answersCount: updatedAnswersCount,
-        answer: answer
-    });
+  handleClickAnswer = () => {
+
+    if (types[0]){ this.answersCount.programmer1+=1;}
+    else if(types[1]){this.answersCount.programmer2+=1;}
+    else if(types[2]){this.answersCount.programmer3+=1;}
+    else if(types[3]){this.answersCount.programmer4+=1;}
+    setTimeout(() => this.setState({counter: this.state.counter + 1}), 300);
+    // console.log(e.target.dataset.type, this.answersCount);
   }
 
-  getResults() {
-   const answersCount = this.state.answersCount;
-   const answersCountKeys = Object.keys(answersCount);
-   const answersCountValues = answersCountKeys.map((key) => answersCount[key]);
-   const maxAnswerCount = Math.max.apply(null, answersCountValues);
-   return answersCountKeys.filter((key) => answersCount[key] === maxAnswerCount);
-   console.log(answersCountKeys);
-   console.log(getResults());
- }
+  */
 
- setResults(result) {
-   if (result.length === 1) {
-     this.setState({ result: result[0] });
-   } else {
-     this.setState({ result: 'Undetermined' });
-   }
- }
+
+
+  handleClickAnswer = (e) => {
+    let t=e.target.dataset.type;
+    if (t==='Perfekcyjny Perfekcjonista'){ this.answersCount.programmer1+=1;}
+    else if(t==='MacGyver'){this.answersCount.programmer2+=1;}
+    else if(t==='Pan Nie da się'){this.answersCount.programmer3+=1;}
+    else if(t==='Programista Spaghetti'){this.answersCount.programmer4+=1;}
+    setTimeout(() => this.setState({counter: this.state.counter + 1}), 300);
+    console.log(e.target.dataset.type, this.answersCount);
+  }
+
 
 
   render(){
@@ -83,17 +92,63 @@ export class Quiz extends React.Component {
         </div>
         <div className='answers' >{answerOptions.map((answerOption, i) => {
             // console.log(answerOption);
-            return <button className='button-answer' key={i} onClick={() => {
-              setTimeout(() => this.setState({counter: this.state.counter + 1}), 300);
-            }}>{answerOption.content}</button>
+            return <button className='button-answer' data-type={answerOption.type} key={i} onClick={this.handleClickAnswer}>{answerOption.content}</button>
           })}
         </div>
       </div>
     } else {
-      return <div><Result quizResult={this.state.result}/></div>
+      //oblicz result na podstawie this.answersCount
+
+
+      let result ='';
+      if ((this.answersCount.programmer1 > this.answersCount.programmer2) && (this.answersCount.programmer1 > this.answersCount.programmer3) && (this.answersCount.programmer1 > this.answersCount.programmer4)) {
+        result = 'Perfekcyjny Perfekcjonista';
+      } else if ((this.answersCount.programmer2 > this.answersCount.programmer1) && (this.answersCount.programmer2 > this.answersCount.programmer3) && (this.answersCount.programmer2 > this.answersCount.programmer4)) {
+        result = 'MacGyver';
+      } else if ((this.answersCount.programmer3 > this.answersCount.programmer1) && (this.answersCount.programmer3 > this.answersCount.programmer2) && (this.answersCount.programmer3 > this.answersCount.programmer4)) {
+        result = 'Pan Nie da się';
+      } else {
+        result = 'Programista Spaghetti';
+      }
+
+      return <div><Result quizResult={result}/></div>
+
+
+/*
+      const list = {programmer1: this.answersCount.programmer1, programmer2: this.answersCount.programmer2, programmer3: this.answersCount.programmer3, programmer4: this.answersCount.programmer4};
+      const keySorted = Object.keys(list).sort(function(a,b){
+        return list[a] - list[b];
+      });
+      const result = keySorted[3];
+      console.log("result", result);
+      console.log("list", list);
+
+
+      // let result = keySorted[3];
+      // if (keySorted[3] == {programmer1}) {
+      //   result = 'Perfekcyjny Perfekcjonista';
+      // } else if (keySorted[3] == {programmer2}) {
+      //   result = 'MacGyver';
+      // } else if (keySorted[3] == {programmer3}) {
+      //   result = 'Pan Nie da się';
+      // } else {
+      //   result = 'Programista Spaghetti';
+      // }
+      return <div><Result quizResult={result}/></div>
+*/
+
+
     }
   }
 }
+
+
+// var list = {programmer1: 0, programmer2: 2, programmer3: 8, programmer4: 5,};
+// var keySorted = Object.keys(list).sort(function(a,b){
+//   console.log(a,b,list[a],list[b]);
+//   return list[a] - list[b];
+// });
+// console.log(keySorted);
 
 
 // handleClickAnswer = () => {

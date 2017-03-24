@@ -6,9 +6,9 @@ class Result extends React.Component {
 
   render(){
     return <div className='quiz-result' >
-      <div className='img-result'></div>
+      <div className='img-result img-4'></div>
       <h2>Twój typ to:</h2>
-      <h1>Programista Spaghetti</h1>
+      <h1>{this.props.quizResult}</h1>
       <p>
         Non-stop idziesz na skróty, by zmieścić się w terminach.
         Jesteś jedną z najbardziej produktywnych osób w zespole.

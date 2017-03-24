@@ -187,11 +187,23 @@ body {
 	.img-result {
 		width: 100%;
 		height: 50vh;
-		background-image: url('../img/spaghetti_code.png');
+
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: contain;
 		margin-bottom: 3rem;
+	}
+	.img-1 {
+		background-image: url('../img/perfect.png');
+	}
+	.img-2 {
+		background-image: url('../img/pocket_knife.png');
+	}
+	.img-3 {
+		background-image: url('../img/padlock_2.png');
+	}
+	.img-4 {
+		background-image: url('../img/spaghetti_code.png');
 	}
 
 	h2 {

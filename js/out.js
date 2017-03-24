@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 195);
+/******/ 	return __webpack_require__(__webpack_require__.s = 196);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -4542,26 +4542,28 @@ module.exports = setInnerHTML;
 /* 31 */
 /***/ (function(module, exports) {
 
+/*
+
 module.exports = [
   {
     id: 1,
     question: 'Jak reagujesz, gdy ktoś krytykuje lub poprawia twój kod?',
     answers: [
       {
-        type: 'programmer1',
+        type: 'MacGyver',
         content: 'Działa? Działa! Nie mam czasu na drobiazgi!'
       },
       {
-        type: 'programmer2',
+        type: 'Perfekcyjny Perfekcjonista',
         content: 'No cóż... sam mógłbym poprawiać go w nieskończoność.'
       },
       {
-        type: 'programmer3',
-        content: 'Idiota, co on wie o kodowaniu?!'
+        type: 'Pan Nie da się',
+        content: 'Podaję mu setki kontrargumentów.'
       },
       {
-        type: 'programmer4',
-        content: 'Podaję mu setki kontrargumentów.'
+        type: 'Programista Spaghetti',
+        content: 'Idiota, co on wie o kodowaniu?!'
       }
     ]
   },
@@ -4570,20 +4572,20 @@ module.exports = [
     question: 'Które zdanie pasuje do Ciebie?',
     answers: [
       {
-        type: 'programmer2',
-        content: 'Mój kod jest piękny i logiczny!'
-      },
-      {
-        type: 'programmer3',
-        content: 'Mój kod jakoś działa.'
-      },
-      {
-        type: 'programmer1',
+        type: 'MacGyver',
         content: 'Wyrobiłem się z taskiem w terminie, najwyżej późnej będę poprawiać.'
       },
       {
-        type: 'programmer4',
+        type: 'Perfekcyjny Perfekcjonista',
+        content: 'Mój kod jest piękny i logiczny!'
+      },
+      {
+        type: 'Pan Nie da się',
         content: 'Miałem rację, że będą problemy.'
+      },
+      {
+        type: 'Programista Spaghetti',
+        content: 'Mój kod jakoś działa.'
       }
     ]
   },
@@ -4592,20 +4594,20 @@ module.exports = [
     question: 'Jak radzisz sobie z nieprecyzyjną dokumentacją wymagań?',
     answers: [
       {
-        type: 'programmer1',
+        type: 'MacGyver',
         content: 'Zaczynam kodowanie, jakoś to będzie.'
       },
       {
-        type: 'programmer2',
+        type: 'Perfekcyjny Perfekcjonista',
         content: 'Domagam się doprecyzowania dokumentacji!'
       },
       {
-        type: 'programmer3',
-        content: 'Yyy… jest jakaś dokumentacja?'
+        type: 'Pan Nie da się',
+        content: 'Z góry mówię, że się nie da!'
       },
       {
-        type: 'programmer4',
-        content: 'Z góry mówię, że się nie da!'
+        type: 'Programista Spaghetti',
+        content: 'Yyy… jest jakaś dokumentacja?'
       }
     ]
   },
@@ -4614,19 +4616,19 @@ module.exports = [
     question: 'Co robisz, gdy klient co chwila zmienia wymagania?',
     answers: [
       {
-        type: 'programmer4',
-        content: 'Protestuję, tak nie można pracować!'
-      },
-      {
-        type: 'programmer1',
+        type: 'MacGyver',
         content: 'Ok, klient nasz pan, jestem agile!'
       },
       {
-        type: 'programmer2',
+        type: 'Perfekcyjny Perfekcjonista',
         content: 'Mówię, że kod trzeba napisać na nowo, bo robi się bałagan.'
       },
       {
-        type: 'programmer3',
+        type: 'Pan Nie da się',
+        content: 'Protestuję, tak nie można pracować!'
+      },
+      {
+        type: 'Programista Spaghetti',
         content: 'Spoko, później powiem, że ten bajzel w kodzie to przez niego.'
       }
     ]
@@ -4636,19 +4638,201 @@ module.exports = [
     question: 'Po 3 miesiącach od wdrożenia musisz poprawić swój kod...',
     answers: [
       {
-        type: 'programmer3',
-        content: 'Kurza twarz! Kto to napisał i jak to działa?!'
-      },
-      {
-        type: 'programmer1',
+        type: 'MacGyver',
         content: 'Szybko znajdujesz kilka doraźnych sposobów.'
       },
       {
-        type: 'programmer4',
+        type: 'Perfekcyjny Perfekcjonista',
+        content: 'Poprawiasz błędy i przy okazji wprowadzasz kilka optymalizacji w kodzie'
+      },
+      {
+        type: 'Pan Nie da się',
         content: 'Pytasz, dlaczego to ty masz go naprawić.'
       },
       {
-        type: 'programmer2',
+        type: 'Programista Spaghetti',
+        content: 'Kurza twarz! Kto to napisał i jak to działa?!'
+      }
+    ]
+  },
+  {
+    id: 6,
+    question: 'Czy przeglądasz kod innych programistów?',
+    answers: [
+      {
+        type: 'MacGyver',
+        content: 'Nie, bo to nudne!'
+      },
+      {
+        type: 'Perfekcyjny Perfekcjonista',
+        content: 'Tak, zawsze mogę go poprawiać.'
+      },
+      {
+        type: 'Pan Nie da się',
+        content: 'Nie mam na to czasu...'
+      },
+      {
+        type: 'Programista Spaghetti',
+        content: 'Nie, bo kto by zrozumiał cudzy kod.'
+      }
+    ]
+  },
+  {
+    id: 7,
+    question: 'Działa, ale nie wiesz dlaczego…',
+    answers: [
+      {
+        type: 'MacGyver',
+        content: 'Ok, może w wolnej chwili się temu przyjrzę.'
+      },
+      {
+        type: 'Perfekcyjny Perfekcjonista',
+        content: 'Muszę to zrozumieć teraz, bo nie da mi spokoju.'
+      },
+      {
+        type: 'Pan Nie da się',
+        content: 'Idę na obiad.'
+      },
+      {
+        type: 'Programista Spaghetti',
+        content: 'Skoro działa, to lepiej nie ruszać i zapomnieć.'
+      }
+    ]
+  },
+  {
+    id: 8,
+    question: 'Klientowi zależy na czasie i prosi cię o podanie terminu wykonania taska',
+    answers: [
+      {
+        type: 'MacGyver',
+        content: 'Mówisz to, co chce usłyszeć klient.'
+      },
+      {
+        type: 'Perfekcyjny Perfekcjonista',
+        content: 'Myślisz tydzień, mówisz dwa - nie idziesz na jakościowe kompromisy.'
+      },
+      {
+        type: 'Pan Nie da się',
+        content: 'Na początku wymieniasz kilka problemów, aby ubić zadanie.'
+      },
+      {
+        type: 'Programista Spaghetti',
+        content: 'Kodowanie jest tak złożone i pełne niespodzianek - nie możesz podać szacunków.'
+      }
+    ]
+  },
+];
+
+*/
+
+
+module.exports = [
+  {
+    id: 1,
+    question: 'Jak reagujesz, gdy ktoś krytykuje lub poprawia twój kod?',
+    answers: [
+      {
+        type: 'MacGyver',
+        content: 'Działa? Działa! Nie mam czasu na drobiazgi!'
+      },
+      {
+        type: 'Perfekcyjny Perfekcjonista',
+        content: 'No cóż... sam mógłbym poprawiać go w nieskończoność.'
+      },
+      {
+        type: 'Programista Spaghetti',
+        content: 'Idiota, co on wie o kodowaniu?!'
+      },
+      {
+        type: 'Pan Nie da się',
+        content: 'Podaję mu setki kontrargumentów.'
+      }
+    ]
+  },
+  {
+    id: 2,
+    question: 'Które zdanie pasuje do Ciebie?',
+    answers: [
+      {
+        type: 'Perfekcyjny Perfekcjonista',
+        content: 'Mój kod jest piękny i logiczny!'
+      },
+      {
+        type: 'Programista Spaghetti',
+        content: 'Mój kod jakoś działa.'
+      },
+      {
+        type: 'MacGyver',
+        content: 'Wyrobiłem się z taskiem w terminie, najwyżej późnej będę poprawiać.'
+      },
+      {
+        type: 'Pan Nie da się',
+        content: 'Miałem rację, że będą problemy.'
+      }
+    ]
+  },
+  {
+    id: 3,
+    question: 'Jak radzisz sobie z nieprecyzyjną dokumentacją wymagań?',
+    answers: [
+      {
+        type: 'MacGyver',
+        content: 'Zaczynam kodowanie, jakoś to będzie.'
+      },
+      {
+        type: 'Perfekcyjny Perfekcjonista',
+        content: 'Domagam się doprecyzowania dokumentacji!'
+      },
+      {
+        type: 'Programista Spaghetti',
+        content: 'Yyy… jest jakaś dokumentacja?'
+      },
+      {
+        type: 'Pan Nie da się',
+        content: 'Z góry mówię, że się nie da!'
+      }
+    ]
+  },
+  {
+    id: 4,
+    question: 'Co robisz, gdy klient co chwila zmienia wymagania?',
+    answers: [
+      {
+        type: 'Pan Nie da się',
+        content: 'Protestuję, tak nie można pracować!'
+      },
+      {
+        type: 'MacGyver',
+        content: 'Ok, klient nasz pan, jestem agile!'
+      },
+      {
+        type: 'Perfekcyjny Perfekcjonista',
+        content: 'Mówię, że kod trzeba napisać na nowo, bo robi się bałagan.'
+      },
+      {
+        type: 'Programista Spaghetti',
+        content: 'Spoko, później powiem, że ten bajzel w kodzie to przez niego.'
+      }
+    ]
+  },
+  {
+    id: 5,
+    question: 'Po 3 miesiącach od wdrożenia musisz poprawić swój kod...',
+    answers: [
+      {
+        type: 'Programista Spaghetti',
+        content: 'Kurza twarz! Kto to napisał i jak to działa?!'
+      },
+      {
+        type: 'MacGyver',
+        content: 'Szybko znajdujesz kilka doraźnych sposobów.'
+      },
+      {
+        type: 'Pan Nie da się',
+        content: 'Pytasz, dlaczego to ty masz go naprawić.'
+      },
+      {
+        type: 'Perfekcyjny Perfekcjonista',
         content: 'Poprawiasz błędy i przy okazji wprowadzasz kilka optymalizacji w kodzie'
       }
     ]
@@ -4658,19 +4842,19 @@ module.exports = [
     question: 'Czy przeglądasz kod innych programistów?',
     answers: [
       {
-        type: 'programmer2',
+        type: 'Perfekcyjny Perfekcjonista',
         content: 'Tak, zawsze mogę go poprawiać.'
       },
       {
-        type: 'programmer4',
+        type: 'Pan Nie da się',
         content: 'Nie mam na to czasu...'
       },
       {
-        type: 'programmer3',
+        type: 'Programista Spaghetti',
         content: 'Nie, bo kto by zrozumiał cudzy kod.'
       },
       {
-        type: 'programmer1',
+        type: 'MacGyver',
         content: 'Nie, bo to nudne!'
       }
     ]
@@ -4680,19 +4864,19 @@ module.exports = [
     question: 'Działa, ale nie wiesz dlaczego…',
     answers: [
       {
-        type: 'programmer3',
+        type: 'Programista Spaghetti',
         content: 'Skoro działa, to lepiej nie ruszać i zapomnieć.'
       },
       {
-        type: 'programmer1',
+        type: 'MacGyver',
         content: 'Ok, może w wolnej chwili się temu przyjrzę.'
       },
       {
-        type: 'programmer2',
+        type: 'Perfekcyjny Perfekcjonista',
         content: 'Muszę to zrozumieć teraz, bo nie da mi spokoju.'
       },
       {
-        type: 'programmer4',
+        type: 'Pan Nie da się',
         content: 'Idę na obiad.'
       }
     ]
@@ -4702,19 +4886,19 @@ module.exports = [
     question: 'Klientowi zależy na czasie i prosi cię o podanie terminu wykonania taska',
     answers: [
       {
-        type: 'programmer2',
+        type: 'Perfekcyjny Perfekcjonista',
         content: 'Myślisz tydzień, mówisz dwa - nie idziesz na jakościowe kompromisy.'
       },
       {
-        type: 'programmer4',
+        type: 'Pan Nie da się',
         content: 'Na początku wymieniasz kilka problemów, aby ubić zadanie.'
       },
       {
-        type: 'programmer1',
+        type: 'MacGyver',
         content: 'Mówisz to, co chce usłyszeć klient.'
       },
       {
-        type: 'programmer3',
+        type: 'Programista Spaghetti',
         content: 'Kodowanie jest tak złożone i pełne niespodzianek - nie możesz podać szacunków.'
       }
     ]
@@ -6939,7 +7123,7 @@ var Result = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'quiz-result' },
-        _react2.default.createElement('div', { className: 'img-result' }),
+        _react2.default.createElement('div', { className: 'img-result img-4' }),
         _react2.default.createElement(
           'h2',
           null,
@@ -6948,7 +7132,7 @@ var Result = function (_React$Component) {
         _react2.default.createElement(
           'h1',
           null,
-          'Programista Spaghetti'
+          this.props.quizResult
         ),
         _react2.default.createElement(
           'p',
@@ -10239,8 +10423,6 @@ var _result = __webpack_require__(55);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -10254,6 +10436,30 @@ var Quiz = exports.Quiz = function (_React$Component) {
     _classCallCheck(this, Quiz);
 
     var _this = _possibleConstructorReturn(this, (Quiz.__proto__ || Object.getPrototypeOf(Quiz)).call(this, props));
+
+    _this.answersCount = {
+      programmer1: 0,
+      programmer2: 0,
+      programmer3: 0,
+      programmer4: 0
+    };
+
+    _this.handleClickAnswer = function (e) {
+      var t = e.target.dataset.type;
+      if (t === 'Perfekcyjny Perfekcjonista') {
+        _this.answersCount.programmer1 += 1;
+      } else if (t === 'MacGyver') {
+        _this.answersCount.programmer2 += 1;
+      } else if (t === 'Pan Nie da się') {
+        _this.answersCount.programmer3 += 1;
+      } else if (t === 'Programista Spaghetti') {
+        _this.answersCount.programmer4 += 1;
+      }
+      setTimeout(function () {
+        return _this.setState({ counter: _this.state.counter + 1 });
+      }, 300);
+      console.log(e.target.dataset.type, _this.answersCount);
+    };
 
     _this.state = {
       hidePrev: 'visible',
@@ -10307,52 +10513,22 @@ var Quiz = exports.Quiz = function (_React$Component) {
         )
       );
     }
-  }, {
-    key: 'setUserAnswer',
-    value: function setUserAnswer(answer) {
-      var updatedAnswersCount = update(this.state.answersCount, _defineProperty({}, answer, { $apply: function $apply(currentValue) {
-          return currentValue + 1;
-        } }));
 
-      this.setState({
-        answersCount: updatedAnswersCount,
-        answer: answer
-      });
-    }
-  }, {
-    key: 'getResults',
-    value: function (_getResults) {
-      function getResults() {
-        return _getResults.apply(this, arguments);
+    /*
+      types = ['MacGyver', 'Perfekcyjny Perfekcjonista', 'Pan Nie da się', 'Programista Spaghetti'];
+    
+      handleClickAnswer = () => {
+    
+        if (types[0]){ this.answersCount.programmer1+=1;}
+        else if(types[1]){this.answersCount.programmer2+=1;}
+        else if(types[2]){this.answersCount.programmer3+=1;}
+        else if(types[3]){this.answersCount.programmer4+=1;}
+        setTimeout(() => this.setState({counter: this.state.counter + 1}), 300);
+        // console.log(e.target.dataset.type, this.answersCount);
       }
+    
+      */
 
-      getResults.toString = function () {
-        return _getResults.toString();
-      };
-
-      return getResults;
-    }(function () {
-      var answersCount = this.state.answersCount;
-      var answersCountKeys = Object.keys(answersCount);
-      var answersCountValues = answersCountKeys.map(function (key) {
-        return answersCount[key];
-      });
-      var maxAnswerCount = Math.max.apply(null, answersCountValues);
-      return answersCountKeys.filter(function (key) {
-        return answersCount[key] === maxAnswerCount;
-      });
-      console.log(answersCountKeys);
-      console.log(getResults());
-    })
-  }, {
-    key: 'setResults',
-    value: function setResults(result) {
-      if (result.length === 1) {
-        this.setState({ result: result[0] });
-      } else {
-        this.setState({ result: 'Undetermined' });
-      }
-    }
   }, {
     key: 'render',
     value: function render() {
@@ -10400,28 +10576,69 @@ var Quiz = exports.Quiz = function (_React$Component) {
               // console.log(answerOption);
               return _react2.default.createElement(
                 'button',
-                { className: 'button-answer', key: i, onClick: function onClick() {
-                    setTimeout(function () {
-                      return _this3.setState({ counter: _this3.state.counter + 1 });
-                    }, 300);
-                  } },
+                { className: 'button-answer', 'data-type': answerOption.type, key: i, onClick: _this3.handleClickAnswer },
                 answerOption.content
               );
             })
           )
         );
       } else {
+        //oblicz result na podstawie this.answersCount
+
+
+        var result = '';
+        if (this.answersCount.programmer1 > this.answersCount.programmer2 && this.answersCount.programmer1 > this.answersCount.programmer3 && this.answersCount.programmer1 > this.answersCount.programmer4) {
+          result = 'Perfekcyjny Perfekcjonista';
+        } else if (this.answersCount.programmer2 > this.answersCount.programmer1 && this.answersCount.programmer2 > this.answersCount.programmer3 && this.answersCount.programmer2 > this.answersCount.programmer4) {
+          result = 'MacGyver';
+        } else if (this.answersCount.programmer3 > this.answersCount.programmer1 && this.answersCount.programmer3 > this.answersCount.programmer2 && this.answersCount.programmer3 > this.answersCount.programmer4) {
+          result = 'Pan Nie da się';
+        } else {
+          result = 'Programista Spaghetti';
+        }
+
         return _react2.default.createElement(
           'div',
           null,
-          _react2.default.createElement(_result.Result, { quizResult: this.state.result })
+          _react2.default.createElement(_result.Result, { quizResult: result })
         );
+
+        /*
+              const list = {programmer1: this.answersCount.programmer1, programmer2: this.answersCount.programmer2, programmer3: this.answersCount.programmer3, programmer4: this.answersCount.programmer4};
+              const keySorted = Object.keys(list).sort(function(a,b){
+                return list[a] - list[b];
+              });
+              const result = keySorted[3];
+              console.log("result", result);
+              console.log("list", list);
+        
+        
+              // let result = keySorted[3];
+              // if (keySorted[3] == {programmer1}) {
+              //   result = 'Perfekcyjny Perfekcjonista';
+              // } else if (keySorted[3] == {programmer2}) {
+              //   result = 'MacGyver';
+              // } else if (keySorted[3] == {programmer3}) {
+              //   result = 'Pan Nie da się';
+              // } else {
+              //   result = 'Programista Spaghetti';
+              // }
+              return <div><Result quizResult={result}/></div>
+        */
       }
     }
   }]);
 
   return Quiz;
 }(_react2.default.Component);
+
+// var list = {programmer1: 0, programmer2: 2, programmer3: 8, programmer4: 5,};
+// var keySorted = Object.keys(list).sort(function(a,b){
+//   console.log(a,b,list[a],list[b]);
+//   return list[a] - list[b];
+// });
+// console.log(keySorted);
+
 
 // handleClickAnswer = () => {
 //   setTimeout(() => this.setState({counter: this.state.counter + 1}), 2000);
@@ -12377,7 +12594,7 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(194)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(195)))
 
 /***/ }),
 /* 88 */
@@ -12388,7 +12605,7 @@ exports = module.exports = __webpack_require__(90)();
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nhtml {\n  font-size: 12px; }\n\nbody {\n  background: #F7D65D;\n  background-image: url(" + __webpack_require__(192) + ");\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-position: right;\n  font-family: 'Raleway', 'Arial', sans-serif; }\n\n.container {\n  max-width: 1200px;\n  width: 100vw;\n  height: 100vh;\n  margin: 0 auto; }\n\n.quiz-intro {\n  width: 100%;\n  text-align: center;\n  display: inline-block; }\n  @media (min-width: 1025px) {\n    .quiz-intro {\n      width: 1000px;\n      height: 750px; } }\n  .quiz-intro .img-intro {\n    width: 100%;\n    height: 50vh;\n    background-image: url(" + __webpack_require__(193) + ");\n    background-repeat: no-repeat;\n    background-position: center;\n    background-size: contain; }\n  .quiz-intro h1 {\n    text-transform: uppercase;\n    color: #2A7E77;\n    font-size: 2.5rem;\n    font-weight: bold;\n    text-align: center;\n    margin: 3rem 0 1rem 0;\n    letter-spacing: 2px; }\n  .quiz-intro p {\n    color: #164041;\n    font-size: 2rem;\n    font-weight: bold;\n    margin-bottom: 2rem;\n    letter-spacing: 2px; }\n  .quiz-intro .start-button {\n    color: #F7D65D;\n    font-size: 2rem;\n    text-transform: uppercase;\n    background-color: #00838f;\n    box-shadow: 0 2px #004F57;\n    border: 1px solid #00838f;\n    border-radius: 3px;\n    padding: 1.5rem 3rem;\n    margin-top: 1rem;\n    cursor: pointer; }\n    .quiz-intro .start-button:hover {\n      background-color: #009FAD; }\n    .quiz-intro .start-button:active {\n      background-color: #009FAD;\n      transform: translateY(2px); }\n\n.app-container {\n  height: 100vh;\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  align-items: center; }\n  .app-container .quiz {\n    width: 100%;\n    background-color: rgba(255, 252, 185, 0.5);\n    border-radius: 5px;\n    padding: 2.5rem; }\n    @media (min-width: 1025px) {\n      .app-container .quiz {\n        width: 1000px;\n        height: 750px; } }\n\n.quiz-header {\n  height: 30%;\n  margin: 3rem 0; }\n\n.counter-question {\n  font-family: 'Arial';\n  font-size: 2rem;\n  color: #00838f;\n  text-align: center;\n  font-weight: bold;\n  margin-top: 1rem; }\n\n.question {\n  width: 100%;\n  font-size: 2.5rem;\n  color: #164041;\n  text-transform: uppercase;\n  text-align: center;\n  font-weight: normal;\n  line-height: 4rem;\n  margin: 5rem 0;\n  font-weight: bold;\n  letter-spacing: 2px; }\n\n.answers {\n  display: flex;\n  flex-direction: column;\n  align-content: flex-end;\n  margin: 1rem 0; }\n  .answers .button-answer {\n    width: 100%;\n    color: #F7D65D;\n    font-size: 2rem;\n    background-color: #00838f;\n    box-shadow: 0 2px #004F57;\n    border: 1px solid #00838f;\n    border-radius: 3px;\n    padding: 2.5rem 2rem;\n    margin-top: 1rem;\n    cursor: pointer; }\n    .answers .button-answer:hover {\n      background-color: #009FAD; }\n    .answers .button-answer:active {\n      background-color: #009FAD;\n      transform: translateY(2px); }\n\n.quiz-result {\n  width: 100%;\n  text-align: center;\n  display: inline-block; }\n  @media (min-width: 1025px) {\n    .quiz-result {\n      width: 1000px;\n      height: 750px; } }\n  .quiz-result .img-result {\n    width: 100%;\n    height: 50vh;\n    background-image: url(" + __webpack_require__(196) + ");\n    background-repeat: no-repeat;\n    background-position: center;\n    background-size: contain;\n    margin-bottom: 3rem; }\n  .quiz-result h2 {\n    color: #164041;\n    font-size: 2rem;\n    font-weight: bold;\n    text-align: center;\n    letter-spacing: 2px; }\n  .quiz-result h1 {\n    color: #2A7E77;\n    font-size: 3rem;\n    text-transform: uppercase;\n    letter-spacing: 2px;\n    margin: 1rem 0 2rem 0; }\n  .quiz-result p {\n    color: #164041;\n    font-size: 1.5rem;\n    font-weight: bold;\n    letter-spacing: 2px;\n    padding: 0 3rem; }\n", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nhtml {\n  font-size: 12px; }\n\nbody {\n  background: #F7D65D;\n  background-image: url(" + __webpack_require__(192) + ");\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-position: right;\n  font-family: 'Raleway', 'Arial', sans-serif; }\n\n.container {\n  max-width: 1200px;\n  width: 100vw;\n  height: 100vh;\n  margin: 0 auto; }\n\n.quiz-intro {\n  width: 100%;\n  text-align: center;\n  display: inline-block; }\n  @media (min-width: 1025px) {\n    .quiz-intro {\n      width: 1000px;\n      height: 750px; } }\n  .quiz-intro .img-intro {\n    width: 100%;\n    height: 50vh;\n    background-image: url(" + __webpack_require__(193) + ");\n    background-repeat: no-repeat;\n    background-position: center;\n    background-size: contain; }\n  .quiz-intro h1 {\n    text-transform: uppercase;\n    color: #2A7E77;\n    font-size: 2.5rem;\n    font-weight: bold;\n    text-align: center;\n    margin: 3rem 0 1rem 0;\n    letter-spacing: 2px; }\n  .quiz-intro p {\n    color: #164041;\n    font-size: 2rem;\n    font-weight: bold;\n    margin-bottom: 2rem;\n    letter-spacing: 2px; }\n  .quiz-intro .start-button {\n    color: #F7D65D;\n    font-size: 2rem;\n    text-transform: uppercase;\n    background-color: #00838f;\n    box-shadow: 0 2px #004F57;\n    border: 1px solid #00838f;\n    border-radius: 3px;\n    padding: 1.5rem 3rem;\n    margin-top: 1rem;\n    cursor: pointer; }\n    .quiz-intro .start-button:hover {\n      background-color: #009FAD; }\n    .quiz-intro .start-button:active {\n      background-color: #009FAD;\n      transform: translateY(2px); }\n\n.app-container {\n  height: 100vh;\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  align-items: center; }\n  .app-container .quiz {\n    width: 100%;\n    background-color: rgba(255, 252, 185, 0.5);\n    border-radius: 5px;\n    padding: 2.5rem; }\n    @media (min-width: 1025px) {\n      .app-container .quiz {\n        width: 1000px;\n        height: 750px; } }\n\n.quiz-header {\n  height: 30%;\n  margin: 3rem 0; }\n\n.counter-question {\n  font-family: 'Arial';\n  font-size: 2rem;\n  color: #00838f;\n  text-align: center;\n  font-weight: bold;\n  margin-top: 1rem; }\n\n.question {\n  width: 100%;\n  font-size: 2.5rem;\n  color: #164041;\n  text-transform: uppercase;\n  text-align: center;\n  font-weight: normal;\n  line-height: 4rem;\n  margin: 5rem 0;\n  font-weight: bold;\n  letter-spacing: 2px; }\n\n.answers {\n  display: flex;\n  flex-direction: column;\n  align-content: flex-end;\n  margin: 1rem 0; }\n  .answers .button-answer {\n    width: 100%;\n    color: #F7D65D;\n    font-size: 2rem;\n    background-color: #00838f;\n    box-shadow: 0 2px #004F57;\n    border: 1px solid #00838f;\n    border-radius: 3px;\n    padding: 2.5rem 2rem;\n    margin-top: 1rem;\n    cursor: pointer; }\n    .answers .button-answer:hover {\n      background-color: #009FAD; }\n    .answers .button-answer:active {\n      background-color: #009FAD;\n      transform: translateY(2px); }\n\n.quiz-result {\n  width: 100%;\n  text-align: center;\n  display: inline-block; }\n  @media (min-width: 1025px) {\n    .quiz-result {\n      width: 1000px;\n      height: 750px; } }\n  .quiz-result .img-result {\n    width: 100%;\n    height: 50vh;\n    background-repeat: no-repeat;\n    background-position: center;\n    background-size: contain;\n    margin-bottom: 3rem; }\n  .quiz-result .img-1 {\n    background-image: url(" + __webpack_require__(198) + "); }\n  .quiz-result .img-2 {\n    background-image: url(" + __webpack_require__(199) + "); }\n  .quiz-result .img-3 {\n    background-image: url(" + __webpack_require__(197) + "); }\n  .quiz-result .img-4 {\n    background-image: url(" + __webpack_require__(194) + "); }\n  .quiz-result h2 {\n    color: #164041;\n    font-size: 2rem;\n    font-weight: bold;\n    text-align: center;\n    letter-spacing: 2px; }\n  .quiz-result h1 {\n    color: #2A7E77;\n    font-size: 3rem;\n    text-transform: uppercase;\n    letter-spacing: 2px;\n    margin: 1rem 0 2rem 0; }\n  .quiz-result p {\n    color: #164041;\n    font-size: 1.5rem;\n    font-weight: bold;\n    letter-spacing: 2px;\n    padding: 0 3rem; }\n", ""]);
 
 // exports
 
@@ -25471,6 +25688,12 @@ module.exports = __webpack_require__.p + "5d7f7268b9ad742f490cfe0ba92f9ace.png";
 
 /***/ }),
 /* 194 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "8133fc19736311d4f5d48b3d22622629.png";
+
+/***/ }),
+/* 195 */
 /***/ (function(module, exports) {
 
 var g;
@@ -25497,7 +25720,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 195 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(84);
@@ -25505,10 +25728,22 @@ module.exports = __webpack_require__(83);
 
 
 /***/ }),
-/* 196 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "8133fc19736311d4f5d48b3d22622629.png";
+module.exports = __webpack_require__.p + "9b9d40f706de4baca8b818bf8dc3599c.png";
+
+/***/ }),
+/* 198 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "3863fcf818cbe2b65729de01caeba606.png";
+
+/***/ }),
+/* 199 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "1a4a4bed6930d793228956e0420fc71b.png";
 
 /***/ })
 /******/ ]);
