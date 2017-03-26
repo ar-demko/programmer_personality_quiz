@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import questions from './quizQuestions';
+import content from './resultContent';
 
 class Result extends React.Component {
-
   render(){
-    return <div className='quiz-result' >
+    return <div className='quiz-result'>
       <div className='img-result img-4'></div>
       <h2>Twój typ to:</h2>
       <h1>{this.props.quizResult}</h1>

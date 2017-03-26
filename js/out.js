@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 196);
+/******/ 	return __webpack_require__(__webpack_require__.s = 199);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -7100,6 +7100,10 @@ var _quizQuestions = __webpack_require__(31);
 
 var _quizQuestions2 = _interopRequireDefault(_quizQuestions);
 
+var _resultContent = __webpack_require__(200);
+
+var _resultContent2 = _interopRequireDefault(_resultContent);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -10419,6 +10423,10 @@ var _quizQuestions = __webpack_require__(31);
 
 var _quizQuestions2 = _interopRequireDefault(_quizQuestions);
 
+var _resultContent = __webpack_require__(200);
+
+var _resultContent2 = _interopRequireDefault(_resultContent);
+
 var _result = __webpack_require__(55);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -10444,6 +10452,17 @@ var Quiz = exports.Quiz = function (_React$Component) {
       programmer4: 0
     };
 
+    _this.handleClikButtonStart = function () {
+      if (_this.state.hidePrev == 'visible') {
+        setTimeout(function () {
+          return _this.setState({ hidePrev: 'hidden' });
+        }, 300);
+        setTimeout(function () {
+          return _this.setState({ showNext: 'visible' });
+        }, 300);
+      }
+    };
+
     _this.handleClickAnswer = function (e) {
       var t = e.target.dataset.type;
       if (t === 'Perfekcyjny Perfekcjonista') {
@@ -10465,13 +10484,8 @@ var Quiz = exports.Quiz = function (_React$Component) {
       hidePrev: 'visible',
       showNext: 'hidden',
       questionsList: _quizQuestions2.default,
+      contentList: _resultContent2.default,
       counter: 0,
-      answersCount: {
-        programmer1: 0,
-        programmer2: 0,
-        programmer3: 0,
-        programmer4: 0
-      },
       answer: '',
       result: ''
     };
@@ -10481,8 +10495,6 @@ var Quiz = exports.Quiz = function (_React$Component) {
   _createClass(Quiz, [{
     key: 'intro',
     value: function intro() {
-      var _this2 = this;
-
       return _react2.default.createElement(
         'div',
         { className: 'quiz-intro', style: { visibility: this.state.hidePrev } },
@@ -10499,40 +10511,15 @@ var Quiz = exports.Quiz = function (_React$Component) {
         ),
         _react2.default.createElement(
           'button',
-          { className: 'start-button', onClick: function onClick() {
-              if (_this2.state.hidePrev == 'visible') {
-                setTimeout(function () {
-                  return _this2.setState({ hidePrev: 'hidden' });
-                }, 300);
-                setTimeout(function () {
-                  return _this2.setState({ showNext: 'visible' });
-                }, 300);
-              }
-            } },
+          { className: 'start-button', onClick: this.handleClikButtonStart },
           'Start'
         )
       );
     }
-
-    /*
-      types = ['MacGyver', 'Perfekcyjny Perfekcjonista', 'Pan Nie da się', 'Programista Spaghetti'];
-    
-      handleClickAnswer = () => {
-    
-        if (types[0]){ this.answersCount.programmer1+=1;}
-        else if(types[1]){this.answersCount.programmer2+=1;}
-        else if(types[2]){this.answersCount.programmer3+=1;}
-        else if(types[3]){this.answersCount.programmer4+=1;}
-        setTimeout(() => this.setState({counter: this.state.counter + 1}), 300);
-        // console.log(e.target.dataset.type, this.answersCount);
-      }
-    
-      */
-
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       console.log("counter", this.state.counter);
       console.log('wynik', this.state.result);
@@ -10573,58 +10560,27 @@ var Quiz = exports.Quiz = function (_React$Component) {
             'div',
             { className: 'answers' },
             answerOptions.map(function (answerOption, i) {
-              // console.log(answerOption);
               return _react2.default.createElement(
                 'button',
-                { className: 'button-answer', 'data-type': answerOption.type, key: i, onClick: _this3.handleClickAnswer },
+                { className: 'button-answer', 'data-type': answerOption.type, key: i, onClick: _this2.handleClickAnswer },
                 answerOption.content
               );
             })
           )
         );
       } else {
-        //oblicz result na podstawie this.answersCount
-
-
-        var result = '';
-        if (this.answersCount.programmer1 > this.answersCount.programmer2 && this.answersCount.programmer1 > this.answersCount.programmer3 && this.answersCount.programmer1 > this.answersCount.programmer4) {
-          result = 'Perfekcyjny Perfekcjonista';
-        } else if (this.answersCount.programmer2 > this.answersCount.programmer1 && this.answersCount.programmer2 > this.answersCount.programmer3 && this.answersCount.programmer2 > this.answersCount.programmer4) {
-          result = 'MacGyver';
-        } else if (this.answersCount.programmer3 > this.answersCount.programmer1 && this.answersCount.programmer3 > this.answersCount.programmer2 && this.answersCount.programmer3 > this.answersCount.programmer4) {
-          result = 'Pan Nie da się';
-        } else {
-          result = 'Programista Spaghetti';
-        }
-
+        var list = { 'Perfekcyjny Perfekcjonista': this.answersCount.programmer1, 'MacGyver': this.answersCount.programmer2, 'Pan Nie da się': this.answersCount.programmer3, 'Programista Spaghetti': this.answersCount.programmer4 };
+        var keySorted = Object.keys(list).sort(function (a, b) {
+          return list[a] - list[b];
+        });
+        var result = keySorted[3];
+        console.log("result", result);
+        console.log("list", list);
         return _react2.default.createElement(
           'div',
           null,
           _react2.default.createElement(_result.Result, { quizResult: result })
         );
-
-        /*
-              const list = {programmer1: this.answersCount.programmer1, programmer2: this.answersCount.programmer2, programmer3: this.answersCount.programmer3, programmer4: this.answersCount.programmer4};
-              const keySorted = Object.keys(list).sort(function(a,b){
-                return list[a] - list[b];
-              });
-              const result = keySorted[3];
-              console.log("result", result);
-              console.log("list", list);
-        
-        
-              // let result = keySorted[3];
-              // if (keySorted[3] == {programmer1}) {
-              //   result = 'Perfekcyjny Perfekcjonista';
-              // } else if (keySorted[3] == {programmer2}) {
-              //   result = 'MacGyver';
-              // } else if (keySorted[3] == {programmer3}) {
-              //   result = 'Pan Nie da się';
-              // } else {
-              //   result = 'Programista Spaghetti';
-              // }
-              return <div><Result quizResult={result}/></div>
-        */
       }
     }
   }]);
@@ -12594,7 +12550,7 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(195)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(198)))
 
 /***/ }),
 /* 88 */
@@ -12605,7 +12561,7 @@ exports = module.exports = __webpack_require__(90)();
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nhtml {\n  font-size: 12px; }\n\nbody {\n  background: #F7D65D;\n  background-image: url(" + __webpack_require__(192) + ");\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-position: right;\n  font-family: 'Raleway', 'Arial', sans-serif; }\n\n.container {\n  max-width: 1200px;\n  width: 100vw;\n  height: 100vh;\n  margin: 0 auto; }\n\n.quiz-intro {\n  width: 100%;\n  text-align: center;\n  display: inline-block; }\n  @media (min-width: 1025px) {\n    .quiz-intro {\n      width: 1000px;\n      height: 750px; } }\n  .quiz-intro .img-intro {\n    width: 100%;\n    height: 50vh;\n    background-image: url(" + __webpack_require__(193) + ");\n    background-repeat: no-repeat;\n    background-position: center;\n    background-size: contain; }\n  .quiz-intro h1 {\n    text-transform: uppercase;\n    color: #2A7E77;\n    font-size: 2.5rem;\n    font-weight: bold;\n    text-align: center;\n    margin: 3rem 0 1rem 0;\n    letter-spacing: 2px; }\n  .quiz-intro p {\n    color: #164041;\n    font-size: 2rem;\n    font-weight: bold;\n    margin-bottom: 2rem;\n    letter-spacing: 2px; }\n  .quiz-intro .start-button {\n    color: #F7D65D;\n    font-size: 2rem;\n    text-transform: uppercase;\n    background-color: #00838f;\n    box-shadow: 0 2px #004F57;\n    border: 1px solid #00838f;\n    border-radius: 3px;\n    padding: 1.5rem 3rem;\n    margin-top: 1rem;\n    cursor: pointer; }\n    .quiz-intro .start-button:hover {\n      background-color: #009FAD; }\n    .quiz-intro .start-button:active {\n      background-color: #009FAD;\n      transform: translateY(2px); }\n\n.app-container {\n  height: 100vh;\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  align-items: center; }\n  .app-container .quiz {\n    width: 100%;\n    background-color: rgba(255, 252, 185, 0.5);\n    border-radius: 5px;\n    padding: 2.5rem; }\n    @media (min-width: 1025px) {\n      .app-container .quiz {\n        width: 1000px;\n        height: 750px; } }\n\n.quiz-header {\n  height: 30%;\n  margin: 3rem 0; }\n\n.counter-question {\n  font-family: 'Arial';\n  font-size: 2rem;\n  color: #00838f;\n  text-align: center;\n  font-weight: bold;\n  margin-top: 1rem; }\n\n.question {\n  width: 100%;\n  font-size: 2.5rem;\n  color: #164041;\n  text-transform: uppercase;\n  text-align: center;\n  font-weight: normal;\n  line-height: 4rem;\n  margin: 5rem 0;\n  font-weight: bold;\n  letter-spacing: 2px; }\n\n.answers {\n  display: flex;\n  flex-direction: column;\n  align-content: flex-end;\n  margin: 1rem 0; }\n  .answers .button-answer {\n    width: 100%;\n    color: #F7D65D;\n    font-size: 2rem;\n    background-color: #00838f;\n    box-shadow: 0 2px #004F57;\n    border: 1px solid #00838f;\n    border-radius: 3px;\n    padding: 2.5rem 2rem;\n    margin-top: 1rem;\n    cursor: pointer; }\n    .answers .button-answer:hover {\n      background-color: #009FAD; }\n    .answers .button-answer:active {\n      background-color: #009FAD;\n      transform: translateY(2px); }\n\n.quiz-result {\n  width: 100%;\n  text-align: center;\n  display: inline-block; }\n  @media (min-width: 1025px) {\n    .quiz-result {\n      width: 1000px;\n      height: 750px; } }\n  .quiz-result .img-result {\n    width: 100%;\n    height: 50vh;\n    background-repeat: no-repeat;\n    background-position: center;\n    background-size: contain;\n    margin-bottom: 3rem; }\n  .quiz-result .img-1 {\n    background-image: url(" + __webpack_require__(198) + "); }\n  .quiz-result .img-2 {\n    background-image: url(" + __webpack_require__(199) + "); }\n  .quiz-result .img-3 {\n    background-image: url(" + __webpack_require__(197) + "); }\n  .quiz-result .img-4 {\n    background-image: url(" + __webpack_require__(194) + "); }\n  .quiz-result h2 {\n    color: #164041;\n    font-size: 2rem;\n    font-weight: bold;\n    text-align: center;\n    letter-spacing: 2px; }\n  .quiz-result h1 {\n    color: #2A7E77;\n    font-size: 3rem;\n    text-transform: uppercase;\n    letter-spacing: 2px;\n    margin: 1rem 0 2rem 0; }\n  .quiz-result p {\n    color: #164041;\n    font-size: 1.5rem;\n    font-weight: bold;\n    letter-spacing: 2px;\n    padding: 0 3rem; }\n", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\nhtml {\n  font-size: 12px; }\n\nbody {\n  background: #F7D65D;\n  background-image: url(" + __webpack_require__(192) + ");\n  background-repeat: no-repeat;\n  background-size: cover;\n  background-position: right;\n  font-family: 'Raleway', 'Arial', sans-serif; }\n\n.container {\n  max-width: 1200px;\n  width: 100vw;\n  height: 100vh;\n  margin: 0 auto; }\n\n.quiz-intro {\n  width: 100%;\n  text-align: center;\n  display: inline-block; }\n  @media (min-width: 1025px) {\n    .quiz-intro {\n      width: 1000px;\n      height: 750px; } }\n  .quiz-intro .img-intro {\n    width: 100%;\n    height: 50vh;\n    background-image: url(" + __webpack_require__(196) + ");\n    background-repeat: no-repeat;\n    background-position: center;\n    background-size: contain; }\n  .quiz-intro h1 {\n    text-transform: uppercase;\n    color: #2A7E77;\n    font-size: 2.5rem;\n    font-weight: bold;\n    text-align: center;\n    margin: 3rem 0 1rem 0;\n    letter-spacing: 2px; }\n  .quiz-intro p {\n    color: #164041;\n    font-size: 2rem;\n    font-weight: bold;\n    margin-bottom: 2rem;\n    letter-spacing: 2px; }\n  .quiz-intro .start-button {\n    color: #F7D65D;\n    font-size: 2rem;\n    text-transform: uppercase;\n    background-color: #00838f;\n    box-shadow: 0 2px #004F57;\n    border: 1px solid #00838f;\n    border-radius: 3px;\n    padding: 1.5rem 3rem;\n    margin-top: 1rem;\n    cursor: pointer; }\n    .quiz-intro .start-button:hover {\n      background-color: #009FAD; }\n    .quiz-intro .start-button:active {\n      background-color: #009FAD;\n      transform: translateY(2px); }\n\n.app-container {\n  height: 100vh;\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  align-items: center; }\n  .app-container .quiz {\n    width: 100%;\n    background-color: rgba(255, 252, 185, 0.5);\n    border-radius: 5px;\n    padding: 2.5rem; }\n    @media (min-width: 1025px) {\n      .app-container .quiz {\n        width: 1000px;\n        height: 750px; } }\n\n.quiz-header {\n  height: 30%;\n  margin: 3rem 0; }\n\n.counter-question {\n  font-family: 'Arial';\n  font-size: 2rem;\n  color: #00838f;\n  text-align: center;\n  font-weight: bold;\n  margin-top: 1rem; }\n\n.question {\n  width: 100%;\n  font-size: 2.5rem;\n  color: #164041;\n  text-transform: uppercase;\n  text-align: center;\n  font-weight: normal;\n  line-height: 4rem;\n  margin: 5rem 0;\n  font-weight: bold;\n  letter-spacing: 2px; }\n\n.answers {\n  display: flex;\n  flex-direction: column;\n  align-content: flex-end;\n  margin: 1rem 0; }\n  .answers .button-answer {\n    width: 100%;\n    color: #F7D65D;\n    font-size: 2rem;\n    background-color: #00838f;\n    box-shadow: 0 2px #004F57;\n    border: 1px solid #00838f;\n    border-radius: 3px;\n    padding: 2.5rem 2rem;\n    margin-top: 1rem;\n    cursor: pointer; }\n    .answers .button-answer:hover {\n      background-color: #009FAD; }\n    .answers .button-answer:active {\n      background-color: #009FAD;\n      transform: translateY(2px); }\n\n.quiz-result {\n  width: 100%;\n  text-align: center;\n  display: inline-block; }\n  @media (min-width: 1025px) {\n    .quiz-result {\n      width: 1000px;\n      height: 750px; } }\n  .quiz-result .img-result {\n    width: 100%;\n    height: 50vh;\n    background-repeat: no-repeat;\n    background-position: center;\n    background-size: contain;\n    margin-bottom: 3rem; }\n  .quiz-result .img-1 {\n    background-image: url(" + __webpack_require__(194) + "); }\n  .quiz-result .img-2 {\n    background-image: url(" + __webpack_require__(195) + "); }\n  .quiz-result .img-3 {\n    background-image: url(" + __webpack_require__(193) + "); }\n  .quiz-result .img-4 {\n    background-image: url(" + __webpack_require__(197) + "); }\n  .quiz-result h2 {\n    color: #164041;\n    font-size: 2rem;\n    font-weight: bold;\n    text-align: center;\n    letter-spacing: 2px; }\n  .quiz-result h1 {\n    color: #2A7E77;\n    font-size: 3rem;\n    text-transform: uppercase;\n    letter-spacing: 2px;\n    margin: 1rem 0 2rem 0; }\n  .quiz-result p {\n    color: #164041;\n    font-size: 1.5rem;\n    font-weight: bold;\n    letter-spacing: 2px;\n    padding: 0 3rem; }\n", ""]);
 
 // exports
 
@@ -25684,16 +25640,34 @@ module.exports = __webpack_require__.p + "8d8f91031f1aaa089e6011dbd3778922.png";
 /* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "5d7f7268b9ad742f490cfe0ba92f9ace.png";
+module.exports = __webpack_require__.p + "9b9d40f706de4baca8b818bf8dc3599c.png";
 
 /***/ }),
 /* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "8133fc19736311d4f5d48b3d22622629.png";
+module.exports = __webpack_require__.p + "3863fcf818cbe2b65729de01caeba606.png";
 
 /***/ }),
 /* 195 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "1a4a4bed6930d793228956e0420fc71b.png";
+
+/***/ }),
+/* 196 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "5d7f7268b9ad742f490cfe0ba92f9ace.png";
+
+/***/ }),
+/* 197 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "8133fc19736311d4f5d48b3d22622629.png";
+
+/***/ }),
+/* 198 */
 /***/ (function(module, exports) {
 
 var g;
@@ -25720,7 +25694,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 196 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(84);
@@ -25728,22 +25702,28 @@ module.exports = __webpack_require__(83);
 
 
 /***/ }),
-/* 197 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 200 */
+/***/ (function(module, exports) {
 
-module.exports = __webpack_require__.p + "9b9d40f706de4baca8b818bf8dc3599c.png";
+module.exports = [
+    {
+        img     :   'img-1',
+        text    :   'kupa kupa kupa'
+    },
+    {
+        img     :   'img-2',
+        text    :   'lalalal lalalal alalala'
+    },
+    {
+        img     :   'img-3',
+        text    :   'fhfdjfh hfuiehfl iurehulireh iufhueirhf iuhfiuer iuehfiuer '
+    },
+    {
+        img     :   'img-4',
+        text    :   'Non-stop idziesz na skróty, by zmieścić się w terminach. Jesteś jedną z najbardziej produktywnych osób w zespole. Niestety... braki w dokumentacji i nieprzetestowane kody sprawiają, że już po miesiącu zaczynasz się gubić… W dłuższej współpracy stwarzasz więcej problemów, ale wciąż radzisz sobie dobrze z deadline’ami. Najgorzej układa ci się współpraca z Perfekcjonistą.'
+    }
+];
 
-/***/ }),
-/* 198 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "3863fcf818cbe2b65729de01caeba606.png";
-
-/***/ }),
-/* 199 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "1a4a4bed6930d793228956e0420fc71b.png";
 
 /***/ })
 /******/ ]);
