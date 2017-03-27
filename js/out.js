@@ -2104,7 +2104,7 @@ var _assign = __webpack_require__(4);
 var ReactCurrentOwner = __webpack_require__(11);
 
 var warning = __webpack_require__(2);
-var canDefineProperty = __webpack_require__(52);
+var canDefineProperty = __webpack_require__(51);
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
 var REACT_ELEMENT_TYPE = __webpack_require__(81);
@@ -2490,10 +2490,10 @@ module.exports = reactProdInvariant;
 
 
 
-var DOMNamespaces = __webpack_require__(35);
+var DOMNamespaces = __webpack_require__(34);
 var setInnerHTML = __webpack_require__(30);
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(42);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(41);
 var setTextContent = __webpack_require__(79);
 
 var ELEMENT_NODE_TYPE = 1;
@@ -2790,7 +2790,7 @@ module.exports = ReactReconciler;
 var _assign = __webpack_require__(4);
 
 var ReactChildren = __webpack_require__(182);
-var ReactComponent = __webpack_require__(49);
+var ReactComponent = __webpack_require__(48);
 var ReactPureComponent = __webpack_require__(186);
 var ReactClass = __webpack_require__(183);
 var ReactDOMFactories = __webpack_require__(184);
@@ -2911,8 +2911,8 @@ module.exports = emptyObject;
 var _prodInvariant = __webpack_require__(3);
 
 var EventPluginRegistry = __webpack_require__(25);
-var EventPluginUtils = __webpack_require__(36);
-var ReactErrorUtils = __webpack_require__(40);
+var EventPluginUtils = __webpack_require__(35);
+var ReactErrorUtils = __webpack_require__(39);
 
 var accumulateInto = __webpack_require__(73);
 var forEachAccumulated = __webpack_require__(74);
@@ -3166,7 +3166,7 @@ module.exports = EventPluginHub;
 
 
 var EventPluginHub = __webpack_require__(21);
-var EventPluginUtils = __webpack_require__(36);
+var EventPluginUtils = __webpack_require__(35);
 
 var accumulateInto = __webpack_require__(73);
 var forEachAccumulated = __webpack_require__(74);
@@ -3360,7 +3360,7 @@ module.exports = ReactInstanceMap;
 
 var SyntheticEvent = __webpack_require__(12);
 
-var getEventTarget = __webpack_require__(45);
+var getEventTarget = __webpack_require__(44);
 
 /**
  * @interface UIEvent
@@ -3690,7 +3690,7 @@ var ReactEventEmitterMixin = __webpack_require__(141);
 var ViewportMetrics = __webpack_require__(72);
 
 var getVendorPrefixedEventName = __webpack_require__(177);
-var isEventSupported = __webpack_require__(46);
+var isEventSupported = __webpack_require__(45);
 
 /**
  * Summary of `ReactBrowserEventEmitter` event handling:
@@ -4019,7 +4019,7 @@ module.exports = ReactBrowserEventEmitter;
 var SyntheticUIEvent = __webpack_require__(24);
 var ViewportMetrics = __webpack_require__(72);
 
-var getEventModifierState = __webpack_require__(44);
+var getEventModifierState = __webpack_require__(43);
 
 /**
  * @interface MouseEvent
@@ -4453,12 +4453,12 @@ module.exports = escapeTextContentForBrowser;
 
 
 var ExecutionEnvironment = __webpack_require__(6);
-var DOMNamespaces = __webpack_require__(35);
+var DOMNamespaces = __webpack_require__(34);
 
 var WHITESPACE_TEST = /^[ \r\n\t\f]/;
 var NONVISIBLE_TEST = /<(!--|link|noscript|meta|script|style)[ \r\n\t\f\/>]/;
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(42);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(41);
 
 // SVG temp container for IE lacking innerHTML
 var reusableSVGContainer;
@@ -4540,374 +4540,6 @@ module.exports = setInnerHTML;
 
 /***/ }),
 /* 31 */
-/***/ (function(module, exports) {
-
-/*
-
-module.exports = [
-  {
-    id: 1,
-    question: 'Jak reagujesz, gdy ktoś krytykuje lub poprawia twój kod?',
-    answers: [
-      {
-        type: 'MacGyver',
-        content: 'Działa? Działa! Nie mam czasu na drobiazgi!'
-      },
-      {
-        type: 'Perfekcyjny Perfekcjonista',
-        content: 'No cóż... sam mógłbym poprawiać go w nieskończoność.'
-      },
-      {
-        type: 'Pan Nie da się',
-        content: 'Podaję mu setki kontrargumentów.'
-      },
-      {
-        type: 'Programista Spaghetti',
-        content: 'Idiota, co on wie o kodowaniu?!'
-      }
-    ]
-  },
-  {
-    id: 2,
-    question: 'Które zdanie pasuje do Ciebie?',
-    answers: [
-      {
-        type: 'MacGyver',
-        content: 'Wyrobiłem się z taskiem w terminie, najwyżej późnej będę poprawiać.'
-      },
-      {
-        type: 'Perfekcyjny Perfekcjonista',
-        content: 'Mój kod jest piękny i logiczny!'
-      },
-      {
-        type: 'Pan Nie da się',
-        content: 'Miałem rację, że będą problemy.'
-      },
-      {
-        type: 'Programista Spaghetti',
-        content: 'Mój kod jakoś działa.'
-      }
-    ]
-  },
-  {
-    id: 3,
-    question: 'Jak radzisz sobie z nieprecyzyjną dokumentacją wymagań?',
-    answers: [
-      {
-        type: 'MacGyver',
-        content: 'Zaczynam kodowanie, jakoś to będzie.'
-      },
-      {
-        type: 'Perfekcyjny Perfekcjonista',
-        content: 'Domagam się doprecyzowania dokumentacji!'
-      },
-      {
-        type: 'Pan Nie da się',
-        content: 'Z góry mówię, że się nie da!'
-      },
-      {
-        type: 'Programista Spaghetti',
-        content: 'Yyy… jest jakaś dokumentacja?'
-      }
-    ]
-  },
-  {
-    id: 4,
-    question: 'Co robisz, gdy klient co chwila zmienia wymagania?',
-    answers: [
-      {
-        type: 'MacGyver',
-        content: 'Ok, klient nasz pan, jestem agile!'
-      },
-      {
-        type: 'Perfekcyjny Perfekcjonista',
-        content: 'Mówię, że kod trzeba napisać na nowo, bo robi się bałagan.'
-      },
-      {
-        type: 'Pan Nie da się',
-        content: 'Protestuję, tak nie można pracować!'
-      },
-      {
-        type: 'Programista Spaghetti',
-        content: 'Spoko, później powiem, że ten bajzel w kodzie to przez niego.'
-      }
-    ]
-  },
-  {
-    id: 5,
-    question: 'Po 3 miesiącach od wdrożenia musisz poprawić swój kod...',
-    answers: [
-      {
-        type: 'MacGyver',
-        content: 'Szybko znajdujesz kilka doraźnych sposobów.'
-      },
-      {
-        type: 'Perfekcyjny Perfekcjonista',
-        content: 'Poprawiasz błędy i przy okazji wprowadzasz kilka optymalizacji w kodzie'
-      },
-      {
-        type: 'Pan Nie da się',
-        content: 'Pytasz, dlaczego to ty masz go naprawić.'
-      },
-      {
-        type: 'Programista Spaghetti',
-        content: 'Kurza twarz! Kto to napisał i jak to działa?!'
-      }
-    ]
-  },
-  {
-    id: 6,
-    question: 'Czy przeglądasz kod innych programistów?',
-    answers: [
-      {
-        type: 'MacGyver',
-        content: 'Nie, bo to nudne!'
-      },
-      {
-        type: 'Perfekcyjny Perfekcjonista',
-        content: 'Tak, zawsze mogę go poprawiać.'
-      },
-      {
-        type: 'Pan Nie da się',
-        content: 'Nie mam na to czasu...'
-      },
-      {
-        type: 'Programista Spaghetti',
-        content: 'Nie, bo kto by zrozumiał cudzy kod.'
-      }
-    ]
-  },
-  {
-    id: 7,
-    question: 'Działa, ale nie wiesz dlaczego…',
-    answers: [
-      {
-        type: 'MacGyver',
-        content: 'Ok, może w wolnej chwili się temu przyjrzę.'
-      },
-      {
-        type: 'Perfekcyjny Perfekcjonista',
-        content: 'Muszę to zrozumieć teraz, bo nie da mi spokoju.'
-      },
-      {
-        type: 'Pan Nie da się',
-        content: 'Idę na obiad.'
-      },
-      {
-        type: 'Programista Spaghetti',
-        content: 'Skoro działa, to lepiej nie ruszać i zapomnieć.'
-      }
-    ]
-  },
-  {
-    id: 8,
-    question: 'Klientowi zależy na czasie i prosi cię o podanie terminu wykonania taska',
-    answers: [
-      {
-        type: 'MacGyver',
-        content: 'Mówisz to, co chce usłyszeć klient.'
-      },
-      {
-        type: 'Perfekcyjny Perfekcjonista',
-        content: 'Myślisz tydzień, mówisz dwa - nie idziesz na jakościowe kompromisy.'
-      },
-      {
-        type: 'Pan Nie da się',
-        content: 'Na początku wymieniasz kilka problemów, aby ubić zadanie.'
-      },
-      {
-        type: 'Programista Spaghetti',
-        content: 'Kodowanie jest tak złożone i pełne niespodzianek - nie możesz podać szacunków.'
-      }
-    ]
-  },
-];
-
-*/
-
-
-module.exports = [
-  {
-    id: 1,
-    question: 'Jak reagujesz, gdy ktoś krytykuje lub poprawia twój kod?',
-    answers: [
-      {
-        type: 'MacGyver',
-        content: 'Działa? Działa! Nie mam czasu na drobiazgi!'
-      },
-      {
-        type: 'Perfekcyjny Perfekcjonista',
-        content: 'No cóż... sam mógłbym poprawiać go w nieskończoność.'
-      },
-      {
-        type: 'Programista Spaghetti',
-        content: 'Idiota, co on wie o kodowaniu?!'
-      },
-      {
-        type: 'Pan Nie da się',
-        content: 'Podaję mu setki kontrargumentów.'
-      }
-    ]
-  },
-  {
-    id: 2,
-    question: 'Które zdanie pasuje do Ciebie?',
-    answers: [
-      {
-        type: 'Perfekcyjny Perfekcjonista',
-        content: 'Mój kod jest piękny i logiczny!'
-      },
-      {
-        type: 'Programista Spaghetti',
-        content: 'Mój kod jakoś działa.'
-      },
-      {
-        type: 'MacGyver',
-        content: 'Wyrobiłem się z taskiem w terminie, najwyżej późnej będę poprawiać.'
-      },
-      {
-        type: 'Pan Nie da się',
-        content: 'Miałem rację, że będą problemy.'
-      }
-    ]
-  },
-  {
-    id: 3,
-    question: 'Jak radzisz sobie z nieprecyzyjną dokumentacją wymagań?',
-    answers: [
-      {
-        type: 'MacGyver',
-        content: 'Zaczynam kodowanie, jakoś to będzie.'
-      },
-      {
-        type: 'Perfekcyjny Perfekcjonista',
-        content: 'Domagam się doprecyzowania dokumentacji!'
-      },
-      {
-        type: 'Programista Spaghetti',
-        content: 'Yyy… jest jakaś dokumentacja?'
-      },
-      {
-        type: 'Pan Nie da się',
-        content: 'Z góry mówię, że się nie da!'
-      }
-    ]
-  },
-  {
-    id: 4,
-    question: 'Co robisz, gdy klient co chwila zmienia wymagania?',
-    answers: [
-      {
-        type: 'Pan Nie da się',
-        content: 'Protestuję, tak nie można pracować!'
-      },
-      {
-        type: 'MacGyver',
-        content: 'Ok, klient nasz pan, jestem agile!'
-      },
-      {
-        type: 'Perfekcyjny Perfekcjonista',
-        content: 'Mówię, że kod trzeba napisać na nowo, bo robi się bałagan.'
-      },
-      {
-        type: 'Programista Spaghetti',
-        content: 'Spoko, później powiem, że ten bajzel w kodzie to przez niego.'
-      }
-    ]
-  },
-  {
-    id: 5,
-    question: 'Po 3 miesiącach od wdrożenia musisz poprawić swój kod...',
-    answers: [
-      {
-        type: 'Programista Spaghetti',
-        content: 'Kurza twarz! Kto to napisał i jak to działa?!'
-      },
-      {
-        type: 'MacGyver',
-        content: 'Szybko znajdujesz kilka doraźnych sposobów.'
-      },
-      {
-        type: 'Pan Nie da się',
-        content: 'Pytasz, dlaczego to ty masz go naprawić.'
-      },
-      {
-        type: 'Perfekcyjny Perfekcjonista',
-        content: 'Poprawiasz błędy i przy okazji wprowadzasz kilka optymalizacji w kodzie'
-      }
-    ]
-  },
-  {
-    id: 6,
-    question: 'Czy przeglądasz kod innych programistów?',
-    answers: [
-      {
-        type: 'Perfekcyjny Perfekcjonista',
-        content: 'Tak, zawsze mogę go poprawiać.'
-      },
-      {
-        type: 'Pan Nie da się',
-        content: 'Nie mam na to czasu...'
-      },
-      {
-        type: 'Programista Spaghetti',
-        content: 'Nie, bo kto by zrozumiał cudzy kod.'
-      },
-      {
-        type: 'MacGyver',
-        content: 'Nie, bo to nudne!'
-      }
-    ]
-  },
-  {
-    id: 7,
-    question: 'Działa, ale nie wiesz dlaczego…',
-    answers: [
-      {
-        type: 'Programista Spaghetti',
-        content: 'Skoro działa, to lepiej nie ruszać i zapomnieć.'
-      },
-      {
-        type: 'MacGyver',
-        content: 'Ok, może w wolnej chwili się temu przyjrzę.'
-      },
-      {
-        type: 'Perfekcyjny Perfekcjonista',
-        content: 'Muszę to zrozumieć teraz, bo nie da mi spokoju.'
-      },
-      {
-        type: 'Pan Nie da się',
-        content: 'Idę na obiad.'
-      }
-    ]
-  },
-  {
-    id: 8,
-    question: 'Klientowi zależy na czasie i prosi cię o podanie terminu wykonania taska',
-    answers: [
-      {
-        type: 'Perfekcyjny Perfekcjonista',
-        content: 'Myślisz tydzień, mówisz dwa - nie idziesz na jakościowe kompromisy.'
-      },
-      {
-        type: 'Pan Nie da się',
-        content: 'Na początku wymieniasz kilka problemów, aby ubić zadanie.'
-      },
-      {
-        type: 'MacGyver',
-        content: 'Mówisz to, co chce usłyszeć klient.'
-      },
-      {
-        type: 'Programista Spaghetti',
-        content: 'Kodowanie jest tak złożone i pełne niespodzianek - nie możesz podać szacunków.'
-      }
-    ]
-  },
-];
-
-
-/***/ }),
-/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4980,7 +4612,7 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4990,7 +4622,7 @@ module.exports = __webpack_require__(122);
 
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5011,7 +4643,7 @@ var Danger = __webpack_require__(114);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactInstrumentation = __webpack_require__(8);
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(42);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(41);
 var setInnerHTML = __webpack_require__(30);
 var setTextContent = __webpack_require__(79);
 
@@ -5221,7 +4853,7 @@ module.exports = DOMChildrenOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5246,7 +4878,7 @@ var DOMNamespaces = {
 module.exports = DOMNamespaces;
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5264,7 +4896,7 @@ module.exports = DOMNamespaces;
 
 var _prodInvariant = __webpack_require__(3);
 
-var ReactErrorUtils = __webpack_require__(40);
+var ReactErrorUtils = __webpack_require__(39);
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -5478,7 +5110,7 @@ module.exports = EventPluginUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5542,7 +5174,7 @@ var KeyEscapeUtils = {
 module.exports = KeyEscapeUtils;
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5683,7 +5315,7 @@ module.exports = LinkedValueUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5735,7 +5367,7 @@ module.exports = ReactComponentEnvironment;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 40 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5818,7 +5450,7 @@ module.exports = ReactErrorUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 41 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6050,7 +5682,7 @@ module.exports = ReactUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 42 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6087,7 +5719,7 @@ var createMicrosoftUnsafeLocalFunction = function (func) {
 module.exports = createMicrosoftUnsafeLocalFunction;
 
 /***/ }),
-/* 43 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6142,7 +5774,7 @@ function getEventCharCode(nativeEvent) {
 module.exports = getEventCharCode;
 
 /***/ }),
-/* 44 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6190,7 +5822,7 @@ function getEventModifierState(nativeEvent) {
 module.exports = getEventModifierState;
 
 /***/ }),
-/* 45 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6230,7 +5862,7 @@ function getEventTarget(nativeEvent) {
 module.exports = getEventTarget;
 
 /***/ }),
-/* 46 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6295,7 +5927,7 @@ function isEventSupported(eventNameSuffix, capture) {
 module.exports = isEventSupported;
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6342,7 +5974,7 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
 module.exports = shouldUpdateReactComponent;
 
 /***/ }),
-/* 48 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6730,7 +6362,7 @@ module.exports = validateDOMNesting;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 49 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6748,9 +6380,9 @@ module.exports = validateDOMNesting;
 
 var _prodInvariant = __webpack_require__(16);
 
-var ReactNoopUpdateQueue = __webpack_require__(50);
+var ReactNoopUpdateQueue = __webpack_require__(49);
 
-var canDefineProperty = __webpack_require__(52);
+var canDefineProperty = __webpack_require__(51);
 var emptyObject = __webpack_require__(20);
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -6854,7 +6486,7 @@ module.exports = ReactComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6956,7 +6588,7 @@ module.exports = ReactNoopUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6987,7 +6619,7 @@ module.exports = ReactPropTypeLocationNames;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7019,7 +6651,7 @@ module.exports = canDefineProperty;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7065,7 +6697,7 @@ function getIteratorFn(maybeIterable) {
 module.exports = getIteratorFn;
 
 /***/ }),
-/* 54 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7075,26 +6707,210 @@ module.exports = __webpack_require__(19);
 
 
 /***/ }),
+/* 54 */
+/***/ (function(module, exports) {
+
+module.exports = [
+  {
+    id: 1,
+    question: 'Jak reagujesz, gdy ktoś krytykuje lub poprawia twój kod?',
+    answers: [
+      {
+        type: 'MacGyver',
+        content: 'Działa? Działa! Nie mam czasu na drobiazgi!'
+      },
+      {
+        type: 'Perfekcjonista',
+        content: 'No cóż... sam mógłbym poprawiać go w nieskończoność.'
+      },
+      {
+        type: 'Spaghetti',
+        content: 'Idiota, co on wie o kodowaniu?!'
+      },
+      {
+        type: 'Pan "Nie da się"',
+        content: 'Podaję mu setki kontrargumentów.'
+      }
+    ]
+  },
+  {
+    id: 2,
+    question: 'Które zdanie pasuje do Ciebie?',
+    answers: [
+      {
+        type: 'Perfekcjonista',
+        content: 'Mój kod jest piękny i logiczny!'
+      },
+      {
+        type: 'Spaghetti',
+        content: 'Mój kod jakoś działa.'
+      },
+      {
+        type: 'MacGyver',
+        content: 'Wyrobiłem się z taskiem w terminie, najwyżej późnej będę poprawiać.'
+      },
+      {
+        type: 'Pan "Nie da się"',
+        content: 'Miałem rację, że będą problemy.'
+      }
+    ]
+  },
+  {
+    id: 3,
+    question: 'Jak radzisz sobie z nieprecyzyjną dokumentacją wymagań?',
+    answers: [
+      {
+        type: 'MacGyver',
+        content: 'Zaczynam kodowanie, jakoś to będzie.'
+      },
+      {
+        type: 'Perfekcjonista',
+        content: 'Domagam się doprecyzowania dokumentacji!'
+      },
+      {
+        type: 'Spaghetti',
+        content: 'Yyy… jest jakaś dokumentacja?'
+      },
+      {
+        type: 'Pan "Nie da się"',
+        content: 'Z góry mówię, że się nie da!'
+      }
+    ]
+  },
+  {
+    id: 4,
+    question: 'Co robisz, gdy klient co chwila zmienia wymagania?',
+    answers: [
+      {
+        type: 'Pan "Nie da się"',
+        content: 'Protestuję, tak nie można pracować!'
+      },
+      {
+        type: 'MacGyver',
+        content: 'Ok, klient nasz pan, jestem agile!'
+      },
+      {
+        type: 'Perfekcjonista',
+        content: 'Mówię, że kod trzeba napisać na nowo, bo robi się bałagan.'
+      },
+      {
+        type: 'Spaghetti',
+        content: 'Spoko, później powiem, że ten bajzel w kodzie to przez niego.'
+      }
+    ]
+  },
+  {
+    id: 5,
+    question: 'Po 3 miesiącach od wdrożenia musisz poprawić swój kod...',
+    answers: [
+      {
+        type: 'Spaghetti',
+        content: 'Kurza twarz! Kto to napisał i jak to działa?!'
+      },
+      {
+        type: 'MacGyver',
+        content: 'Szybko znajdujesz kilka doraźnych sposobów.'
+      },
+      {
+        type: 'Pan "Nie da się"',
+        content: 'Pytasz, dlaczego to ty masz go naprawić.'
+      },
+      {
+        type: 'Perfekcjonista',
+        content: 'Poprawiasz błędy i przy okazji wprowadzasz kilka optymalizacji w kodzie'
+      }
+    ]
+  },
+  {
+    id: 6,
+    question: 'Czy przeglądasz kod innych programistów?',
+    answers: [
+      {
+        type: 'Perfekcjonista',
+        content: 'Tak, zawsze mogę go poprawiać.'
+      },
+      {
+        type: 'Pan "Nie da się"',
+        content: 'Nie mam na to czasu...'
+      },
+      {
+        type: 'Spaghetti',
+        content: 'Nie, bo kto by zrozumiał cudzy kod.'
+      },
+      {
+        type: 'MacGyver',
+        content: 'Nie, bo to nudne!'
+      }
+    ]
+  },
+  {
+    id: 7,
+    question: 'Działa, ale nie wiesz dlaczego…',
+    answers: [
+      {
+        type: 'Spaghetti',
+        content: 'Skoro działa, to lepiej nie ruszać i zapomnieć.'
+      },
+      {
+        type: 'MacGyver',
+        content: 'Ok, może w wolnej chwili się temu przyjrzę.'
+      },
+      {
+        type: 'Perfekcjonista',
+        content: 'Muszę to zrozumieć teraz, bo nie da mi spokoju.'
+      },
+      {
+        type: 'Pan "Nie da się"',
+        content: 'Idę na obiad.'
+      }
+    ]
+  },
+  {
+    id: 8,
+    question: 'Klientowi zależy na czasie i prosi cię o podanie terminu wykonania taska',
+    answers: [
+      {
+        type: 'Perfekcjonista',
+        content: 'Myślisz tydzień, mówisz dwa - nie idziesz na jakościowe kompromisy.'
+      },
+      {
+        type: 'Pan "Nie da się"',
+        content: 'Na początku wymieniasz kilka problemów, aby ubić zadanie.'
+      },
+      {
+        type: 'MacGyver',
+        content: 'Mówisz to, co chce usłyszeć klient.'
+      },
+      {
+        type: 'Spaghetti',
+        content: 'Kodowanie jest tak złożone i pełne niespodzianek - nie możesz podać szacunków.'
+      }
+    ]
+  },
+];
+
+
+/***/ }),
 /* 55 */
 /***/ (function(module, exports) {
 
 module.exports = [
-    {
-        img     :   'img-result img-1',
-        text    :   'Opis programisty nr 1'
-    },
-    {
-        img     :   'img-result img-2',
-        text    :   'Opis programisty nr 2'
-    },
-    {
-        img     :   'img-result img-3',
-        text    :   'Opis programisty nr 3'
-    },
-    {
-        img     :   'img-result img-4',
-        text    :   'Non-stop idziesz na skróty, by zmieścić się w terminach. Jesteś jedną z najbardziej produktywnych osób w zespole. Niestety... braki w dokumentacji i nieprzetestowane kody sprawiają, że już po miesiącu zaczynasz się gubić… W dłuższej współpracy stwarzasz więcej problemów, ale wciąż radzisz sobie dobrze z deadline’ami. Najgorzej układa ci się współpraca z Perfekcjonistą.'
-    }
+  {
+    img: 'img-result img-1',
+    text: 'Programista owładnięty obsesją doskonałości. Dopracowuje każdy szczegół, wielokrotnie powraca do wydawałoby się gotowego już projektu, nieustannie znajdując w nim coś do poprawienia. Projekty napisane przez innych doprowadzają go do szału. Najchętniej napisałby je od nowa. Ma w pogardzie wszelkie deadline’y. Liczy się dla niego tylko wysoka jakość. Potrzebuje szefa, który utemperuje jego manię doskonałości.'
+  },
+  {
+    img: 'img-result img-2',
+    text: 'Znajdzie rozwiązanie każdego problemu. Uwielbiany przez klientów (niekoniecznie przez managerów). Nie przejmuje się za bardzo (żeby nie powiedzieć, że w ogóle) jakością kodowania. Nienawidzi poprawiania błędów w kodach stworzonych przez innych. Użyje taśmy klejącej, spinacza biurowego oraz sznurówki, jeśli zajdzie taka konieczność. Źle współpracuje z Perfekcjonistą.'
+  },
+  {
+    img: 'img-result img-3',
+    text: 'Z natury pesymista, a jego ulubione powiedzenie to „Nie da się!”. Wynajduje problemy, które generują kolejne i tak bez końca. Nie jest jednak leniem - potrafi dobrze wdrożyć rozwiązanie, które wskaże mu jednak ktoś inny. Bardziej rzemieślnik niż czeladnik, potrzebuje mistrza, który go pokieruje. Potrafi zdołować każdego. Już po kilkuminutowej rozmowie człowiek chce wyskoczyć przez okno... nawet, jeśli to parter.'
+  },
+  {
+    img: 'img-result img-4',
+    text: 'Non-stop idzie na skróty, by zmieścić się w terminach. Jest to jedna z najbardziej produktywnych osób w całym zespole. Niestety... braki w dokumentacji i nieprzetestowane kody sprawiają, że już po miesiącu zaczyna się gubić… W dłuższej współpracy stwarza więcej problemów niż korzyści, ale wciąż radzi sobie dobrze z deadline’ami. Najgorzej układa się mu współpraca z Perfekcjonistą.'
+  }
 ];
 
 
@@ -7112,15 +6928,15 @@ exports.Result = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(54);
+var _react = __webpack_require__(53);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(33);
+var _reactDom = __webpack_require__(32);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _quizQuestions = __webpack_require__(31);
+var _quizQuestions = __webpack_require__(54);
 
 var _quizQuestions2 = _interopRequireDefault(_quizQuestions);
 
@@ -7136,7 +6952,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Result = function (_React$Component) {
+var Result = exports.Result = function (_React$Component) {
   _inherits(Result, _React$Component);
 
   function Result() {
@@ -7160,6 +6976,7 @@ var Result = function (_React$Component) {
         _react2.default.createElement(
           'h1',
           null,
+          'Programista ',
           this.props.quizResult
         ),
         _react2.default.createElement(
@@ -7173,37 +6990,6 @@ var Result = function (_React$Component) {
 
   return Result;
 }(_react2.default.Component);
-
-exports.Result = Result;
-
-/*
-return <div className='quiz-result'>
-  <div className='img-result img-4'></div>
-  <h2>Twój typ to:</h2>
-  <h1>{this.props.quizResult}</h1>
-  <p>
-    Non-stop idziesz na skróty, by zmieścić się w terminach.
-    Jesteś jedną z najbardziej produktywnych osób w zespole.
-    Niestety...
-    braki w dokumentacji i nieprzetestowane kody sprawiają, że już po
-    miesiącu zaczynasz się gubić… W dłuższej współpracy stwarzasz więcej problemów,
-    ale wciąż radzisz sobie dobrze z deadline’ami. Najgorzej układa ci się współpraca z Perfekcjonistą.
-  </p>
-</div>
-*/
-
-/*
-  render(){
-    return <div className='quiz-result' >
-      <div className='img-result'></div>
-      <h1>
-        Twój typ to:<br></br>
-      <strong>{this.props.quizResult}!</strong>
-      </h1>
-    </div>
-  }
-}
-*/
 
 /***/ }),
 /* 57 */
@@ -7930,7 +7716,7 @@ module.exports = ReactDOMComponentFlags;
 
 var _assign = __webpack_require__(4);
 
-var LinkedValueUtils = __webpack_require__(38);
+var LinkedValueUtils = __webpack_require__(37);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(10);
 
@@ -8422,14 +8208,14 @@ var ReactInstanceMap = __webpack_require__(23);
 var ReactInstrumentation = __webpack_require__(8);
 var ReactMarkupChecksum = __webpack_require__(146);
 var ReactReconciler = __webpack_require__(18);
-var ReactUpdateQueue = __webpack_require__(41);
+var ReactUpdateQueue = __webpack_require__(40);
 var ReactUpdates = __webpack_require__(10);
 
 var emptyObject = __webpack_require__(20);
 var instantiateReactComponent = __webpack_require__(77);
 var invariant = __webpack_require__(1);
 var setInnerHTML = __webpack_require__(30);
-var shouldUpdateReactComponent = __webpack_require__(47);
+var shouldUpdateReactComponent = __webpack_require__(46);
 var warning = __webpack_require__(2);
 
 var ATTR_NAME = DOMProperty.ID_ATTRIBUTE_NAME;
@@ -9468,7 +9254,7 @@ var REACT_ELEMENT_TYPE = __webpack_require__(140);
 
 var getIteratorFn = __webpack_require__(174);
 var invariant = __webpack_require__(1);
-var KeyEscapeUtils = __webpack_require__(37);
+var KeyEscapeUtils = __webpack_require__(36);
 var warning = __webpack_require__(2);
 
 var SEPARATOR = '.';
@@ -9681,8 +9467,8 @@ var ReactElement = __webpack_require__(15);
 
 var checkReactTypeSpec = __webpack_require__(188);
 
-var canDefineProperty = __webpack_require__(52);
-var getIteratorFn = __webpack_require__(53);
+var canDefineProperty = __webpack_require__(51);
+var getIteratorFn = __webpack_require__(52);
 var warning = __webpack_require__(2);
 
 function getDeclarationErrorAddendum() {
@@ -9915,19 +9701,15 @@ module.exports = ReactPropTypesSecret;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(54);
+var _react = __webpack_require__(53);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(33);
+var _reactDom = __webpack_require__(32);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
 __webpack_require__(192);
-
-var _quizQuestions = __webpack_require__(31);
-
-var _quizQuestions2 = _interopRequireDefault(_quizQuestions);
 
 var _quiz = __webpack_require__(86);
 
@@ -9940,8 +9722,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-// import {Intro} from './components/intro.jsx';
 
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
@@ -10451,15 +10231,15 @@ exports.Quiz = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(54);
+var _react = __webpack_require__(53);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(33);
+var _reactDom = __webpack_require__(32);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _quizQuestions = __webpack_require__(31);
+var _quizQuestions = __webpack_require__(54);
 
 var _quizQuestions2 = _interopRequireDefault(_quizQuestions);
 
@@ -10476,6 +10256,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// import {Intro} from './intro.jsx';
+// import {QuestionCounter} from './questionCount.jsx';
 
 var Quiz = exports.Quiz = function (_React$Component) {
   _inherits(Quiz, _React$Component);
@@ -10504,14 +10287,14 @@ var Quiz = exports.Quiz = function (_React$Component) {
     };
 
     _this.handleClickAnswer = function (e) {
-      var t = e.target.dataset.type;
-      if (t === 'Perfekcyjny Perfekcjonista') {
+      var type = e.target.dataset.type;
+      if (type === 'Perfekcjonista') {
         _this.answersCount.programmer1 += 1;
-      } else if (t === 'MacGyver') {
+      } else if (type === 'MacGyver') {
         _this.answersCount.programmer2 += 1;
-      } else if (t === 'Pan Nie da się') {
+      } else if (type === 'Pan "Nie da się"') {
         _this.answersCount.programmer3 += 1;
-      } else if (t === 'Programista Spaghetti') {
+      } else if (type === 'Spaghetti') {
         _this.answersCount.programmer4 += 1;
       }
       setTimeout(function () {
@@ -10524,10 +10307,7 @@ var Quiz = exports.Quiz = function (_React$Component) {
       hidePrev: 'visible',
       showNext: 'hidden',
       questionsList: _quizQuestions2.default,
-      contentList: _resultContent2.default,
-      counter: 0,
-      answer: '',
-      result: ''
+      counter: 0
     };
     return _this;
   }
@@ -10560,9 +10340,6 @@ var Quiz = exports.Quiz = function (_React$Component) {
     key: 'render',
     value: function render() {
       var _this2 = this;
-
-      console.log("counter", this.state.counter);
-      console.log('wynik', this.state.result);
 
       if (this.state.hidePrev == 'visible') {
         return _react2.default.createElement(
@@ -10609,12 +10386,12 @@ var Quiz = exports.Quiz = function (_React$Component) {
           )
         );
       } else {
-        var list = { 'Perfekcyjny Perfekcjonista': this.answersCount.programmer1, 'MacGyver': this.answersCount.programmer2, 'Pan Nie da się': this.answersCount.programmer3, 'Programista Spaghetti': this.answersCount.programmer4 };
+        var list = { 'Perfekcjonista': this.answersCount.programmer1, 'MacGyver': this.answersCount.programmer2, 'Pan "Nie da się"': this.answersCount.programmer3, 'Spaghetti': this.answersCount.programmer4 };
         var keySorted = Object.keys(list).sort(function (a, b) {
           return list[a] - list[b];
         });
         var result = keySorted[3];
-        if (result == 'Perfekcyjny Perfekcjonista') {
+        if (result == 'Perfekcjonista') {
           return _react2.default.createElement(
             'div',
             null,
@@ -10626,7 +10403,7 @@ var Quiz = exports.Quiz = function (_React$Component) {
             null,
             _react2.default.createElement(_result.Result, { quizResult: result, imgResult: _resultContent2.default[1].img, descriptionResult: _resultContent2.default[1].text })
           );
-        } else if (result == 'Pan Nie da się') {
+        } else if (result == 'Pan "Nie da się"') {
           return _react2.default.createElement(
             'div',
             null,
@@ -10639,60 +10416,12 @@ var Quiz = exports.Quiz = function (_React$Component) {
             _react2.default.createElement(_result.Result, { quizResult: result, imgResult: _resultContent2.default[3].img, descriptionResult: _resultContent2.default[3].text })
           );
         }
-        // return <div><Result quizResult={result}/></div>
-
       }
     }
   }]);
 
   return Quiz;
 }(_react2.default.Component);
-
-// var list = {programmer1: 0, programmer2: 2, programmer3: 8, programmer4: 5,};
-// var keySorted = Object.keys(list).sort(function(a,b){
-//   console.log(a,b,list[a],list[b]);
-//   return list[a] - list[b];
-// });
-// console.log(keySorted);
-
-
-// handleClickAnswer = () => {
-//   setTimeout(() => this.setState({counter: this.state.counter + 1}), 2000);
-// }
-
-/*
-render(){
-  console.log(questionOption);
-  const questionOption = questions[this.state.counter];
-  const answerOptions = questions[this.state.counter].answers;
-  if (this.state.hidePrev == 'visible') {
-    return <div>{this.intro()}</div>
-  } else {
-    if (this.state.counter < 8) {
-      return <div className='quiz' style={{visibility: this.state.showNext}}>
-        <header>
-          <p className='counter-question'>{this.state.counter + 1} z 8</p>
-          <h2 className='question'><span key={questionOption.id}>{questionOption.question}</span></h2>
-        </header>
-        <div className='answers' >{answerOptions.map((answerOption, i) => {
-            console.log(answerOption);
-            return <button className='buttonAnswer' key={i} onClick={() => {
-              this.setState({counter: this.state.counter + 1})
-            }}>{answerOption.content}</button>
-          })}
-        </div>
-      </div>
-    } else {
-      return <div className='quiz' style={{visibility: this.state.showNext}}>
-        <div className='result' >{answerOptions.map((resultOption, i) => {
-            return <p key={i}>{resultOption.type}</p>
-          })}
-        </div>
-      </div>
-    }
-  }
-}
-*/
 
 /***/ }),
 /* 87 */
@@ -14651,8 +14380,8 @@ var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(10);
 var SyntheticEvent = __webpack_require__(12);
 
-var getEventTarget = __webpack_require__(45);
-var isEventSupported = __webpack_require__(46);
+var getEventTarget = __webpack_require__(44);
+var isEventSupported = __webpack_require__(45);
 var isTextInputElement = __webpack_require__(78);
 
 var eventTypes = {
@@ -15480,8 +15209,8 @@ module.exports = HTMLDOMPropertyConfig;
 var ReactReconciler = __webpack_require__(18);
 
 var instantiateReactComponent = __webpack_require__(77);
-var KeyEscapeUtils = __webpack_require__(37);
-var shouldUpdateReactComponent = __webpack_require__(47);
+var KeyEscapeUtils = __webpack_require__(36);
+var shouldUpdateReactComponent = __webpack_require__(46);
 var traverseAllChildren = __webpack_require__(80);
 var warning = __webpack_require__(2);
 
@@ -15637,7 +15366,7 @@ module.exports = ReactChildReconciler;
 
 
 
-var DOMChildrenOperations = __webpack_require__(34);
+var DOMChildrenOperations = __webpack_require__(33);
 var ReactDOMIDOperations = __webpack_require__(127);
 
 /**
@@ -15676,9 +15405,9 @@ var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
 var React = __webpack_require__(19);
-var ReactComponentEnvironment = __webpack_require__(39);
+var ReactComponentEnvironment = __webpack_require__(38);
 var ReactCurrentOwner = __webpack_require__(11);
-var ReactErrorUtils = __webpack_require__(40);
+var ReactErrorUtils = __webpack_require__(39);
 var ReactInstanceMap = __webpack_require__(23);
 var ReactInstrumentation = __webpack_require__(8);
 var ReactNodeTypes = __webpack_require__(70);
@@ -15690,8 +15419,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 var emptyObject = __webpack_require__(20);
 var invariant = __webpack_require__(1);
-var shallowEqual = __webpack_require__(32);
-var shouldUpdateReactComponent = __webpack_require__(47);
+var shallowEqual = __webpack_require__(31);
+var shouldUpdateReactComponent = __webpack_require__(46);
 var warning = __webpack_require__(2);
 
 var CompositeTypes = {
@@ -16705,7 +16434,7 @@ var _prodInvariant = __webpack_require__(3),
 var AutoFocusUtils = __webpack_require__(110);
 var CSSPropertyOperations = __webpack_require__(112);
 var DOMLazyTree = __webpack_require__(17);
-var DOMNamespaces = __webpack_require__(35);
+var DOMNamespaces = __webpack_require__(34);
 var DOMProperty = __webpack_require__(13);
 var DOMPropertyOperations = __webpack_require__(62);
 var EventPluginHub = __webpack_require__(21);
@@ -16724,9 +16453,9 @@ var ReactServerRenderingTransaction = __webpack_require__(152);
 var emptyFunction = __webpack_require__(9);
 var escapeTextContentForBrowser = __webpack_require__(29);
 var invariant = __webpack_require__(1);
-var isEventSupported = __webpack_require__(46);
-var shallowEqual = __webpack_require__(32);
-var validateDOMNesting = __webpack_require__(48);
+var isEventSupported = __webpack_require__(45);
+var shallowEqual = __webpack_require__(31);
+var validateDOMNesting = __webpack_require__(47);
 var warning = __webpack_require__(2);
 
 var Flags = ReactDOMComponentFlags;
@@ -17698,7 +17427,7 @@ module.exports = ReactDOMComponent;
 
 
 
-var validateDOMNesting = __webpack_require__(48);
+var validateDOMNesting = __webpack_require__(47);
 
 var DOC_NODE_TYPE = 9;
 
@@ -17826,7 +17555,7 @@ module.exports = ReactDOMFeatureFlags;
 
 
 
-var DOMChildrenOperations = __webpack_require__(34);
+var DOMChildrenOperations = __webpack_require__(33);
 var ReactDOMComponentTree = __webpack_require__(5);
 
 /**
@@ -17869,7 +17598,7 @@ var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
 var DOMPropertyOperations = __webpack_require__(62);
-var LinkedValueUtils = __webpack_require__(38);
+var LinkedValueUtils = __webpack_require__(37);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(10);
 
@@ -18636,13 +18365,13 @@ module.exports = ReactDOMSelection;
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
-var DOMChildrenOperations = __webpack_require__(34);
+var DOMChildrenOperations = __webpack_require__(33);
 var DOMLazyTree = __webpack_require__(17);
 var ReactDOMComponentTree = __webpack_require__(5);
 
 var escapeTextContentForBrowser = __webpack_require__(29);
 var invariant = __webpack_require__(1);
-var validateDOMNesting = __webpack_require__(48);
+var validateDOMNesting = __webpack_require__(47);
 
 /**
  * Text nodes violate a couple assumptions that React makes about components:
@@ -18806,7 +18535,7 @@ module.exports = ReactDOMTextComponent;
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
-var LinkedValueUtils = __webpack_require__(38);
+var LinkedValueUtils = __webpack_require__(37);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(10);
 
@@ -19825,7 +19554,7 @@ var PooledClass = __webpack_require__(14);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(10);
 
-var getEventTarget = __webpack_require__(45);
+var getEventTarget = __webpack_require__(44);
 var getUnboundedScrollPosition = __webpack_require__(98);
 
 /**
@@ -20018,8 +19747,8 @@ module.exports = ReactHostOperationHistoryHook;
 
 var DOMProperty = __webpack_require__(13);
 var EventPluginHub = __webpack_require__(21);
-var EventPluginUtils = __webpack_require__(36);
-var ReactComponentEnvironment = __webpack_require__(39);
+var EventPluginUtils = __webpack_require__(35);
+var ReactComponentEnvironment = __webpack_require__(38);
 var ReactEmptyComponent = __webpack_require__(65);
 var ReactBrowserEventEmitter = __webpack_require__(26);
 var ReactHostComponent = __webpack_require__(67);
@@ -20155,7 +19884,7 @@ module.exports = ReactMarkupChecksum;
 
 var _prodInvariant = __webpack_require__(3);
 
-var ReactComponentEnvironment = __webpack_require__(39);
+var ReactComponentEnvironment = __webpack_require__(38);
 var ReactInstanceMap = __webpack_require__(23);
 var ReactInstrumentation = __webpack_require__(8);
 
@@ -20748,7 +20477,7 @@ var ReactBrowserEventEmitter = __webpack_require__(26);
 var ReactInputSelection = __webpack_require__(68);
 var ReactInstrumentation = __webpack_require__(8);
 var Transaction = __webpack_require__(28);
-var ReactUpdateQueue = __webpack_require__(41);
+var ReactUpdateQueue = __webpack_require__(40);
 
 /**
  * Ensures that, when possible, the selection range (currently selected text
@@ -21117,7 +20846,7 @@ module.exports = ReactServerRenderingTransaction;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var ReactUpdateQueue = __webpack_require__(41);
+var ReactUpdateQueue = __webpack_require__(40);
 
 var warning = __webpack_require__(2);
 
@@ -21593,7 +21322,7 @@ var SyntheticEvent = __webpack_require__(12);
 
 var getActiveElement = __webpack_require__(59);
 var isTextInputElement = __webpack_require__(78);
-var shallowEqual = __webpack_require__(32);
+var shallowEqual = __webpack_require__(31);
 
 var skipSelectionChangeEvent = ExecutionEnvironment.canUseDOM && 'documentMode' in document && document.documentMode <= 11;
 
@@ -21800,7 +21529,7 @@ var SyntheticUIEvent = __webpack_require__(24);
 var SyntheticWheelEvent = __webpack_require__(167);
 
 var emptyFunction = __webpack_require__(9);
-var getEventCharCode = __webpack_require__(43);
+var getEventCharCode = __webpack_require__(42);
 var invariant = __webpack_require__(1);
 
 /**
@@ -22284,9 +22013,9 @@ module.exports = SyntheticInputEvent;
 
 var SyntheticUIEvent = __webpack_require__(24);
 
-var getEventCharCode = __webpack_require__(43);
+var getEventCharCode = __webpack_require__(42);
 var getEventKey = __webpack_require__(173);
-var getEventModifierState = __webpack_require__(44);
+var getEventModifierState = __webpack_require__(43);
 
 /**
  * @interface KeyboardEvent
@@ -22373,7 +22102,7 @@ module.exports = SyntheticKeyboardEvent;
 
 var SyntheticUIEvent = __webpack_require__(24);
 
-var getEventModifierState = __webpack_require__(44);
+var getEventModifierState = __webpack_require__(43);
 
 /**
  * @interface TouchEvent
@@ -22818,7 +22547,7 @@ module.exports = findDOMNode;
 
 
 
-var KeyEscapeUtils = __webpack_require__(37);
+var KeyEscapeUtils = __webpack_require__(36);
 var traverseAllChildren = __webpack_require__(80);
 var warning = __webpack_require__(2);
 
@@ -22899,7 +22628,7 @@ module.exports = flattenChildren;
 
 
 
-var getEventCharCode = __webpack_require__(43);
+var getEventCharCode = __webpack_require__(42);
 
 /**
  * Normalization of deprecated HTML5 `key` values
@@ -23708,10 +23437,10 @@ module.exports = ReactChildren;
 var _prodInvariant = __webpack_require__(16),
     _assign = __webpack_require__(4);
 
-var ReactComponent = __webpack_require__(49);
+var ReactComponent = __webpack_require__(48);
 var ReactElement = __webpack_require__(15);
-var ReactPropTypeLocationNames = __webpack_require__(51);
-var ReactNoopUpdateQueue = __webpack_require__(50);
+var ReactPropTypeLocationNames = __webpack_require__(50);
+var ReactNoopUpdateQueue = __webpack_require__(49);
 
 var emptyObject = __webpack_require__(20);
 var invariant = __webpack_require__(1);
@@ -24605,11 +24334,11 @@ module.exports = ReactDOMFactories;
 
 
 var ReactElement = __webpack_require__(15);
-var ReactPropTypeLocationNames = __webpack_require__(51);
+var ReactPropTypeLocationNames = __webpack_require__(50);
 var ReactPropTypesSecret = __webpack_require__(83);
 
 var emptyFunction = __webpack_require__(9);
-var getIteratorFn = __webpack_require__(53);
+var getIteratorFn = __webpack_require__(52);
 var warning = __webpack_require__(2);
 
 /**
@@ -25046,8 +24775,8 @@ module.exports = ReactPropTypes;
 
 var _assign = __webpack_require__(4);
 
-var ReactComponent = __webpack_require__(49);
-var ReactNoopUpdateQueue = __webpack_require__(50);
+var ReactComponent = __webpack_require__(48);
+var ReactNoopUpdateQueue = __webpack_require__(49);
 
 var emptyObject = __webpack_require__(20);
 
@@ -25112,7 +24841,7 @@ module.exports = '15.4.0';
 
 var _prodInvariant = __webpack_require__(16);
 
-var ReactPropTypeLocationNames = __webpack_require__(51);
+var ReactPropTypeLocationNames = __webpack_require__(50);
 var ReactPropTypesSecret = __webpack_require__(83);
 
 var invariant = __webpack_require__(1);
@@ -25252,7 +24981,7 @@ var _prodInvariant = __webpack_require__(16);
 var ReactCurrentOwner = __webpack_require__(11);
 var REACT_ELEMENT_TYPE = __webpack_require__(81);
 
-var getIteratorFn = __webpack_require__(53);
+var getIteratorFn = __webpack_require__(52);
 var invariant = __webpack_require__(1);
 var KeyEscapeUtils = __webpack_require__(180);
 var warning = __webpack_require__(2);
