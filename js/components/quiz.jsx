@@ -79,9 +79,16 @@ export class Quiz extends React.Component {
           return list[a] - list[b];
         });
         const result = keySorted[3];
-        console.log("result", result);
-        console.log("list", list);
-        return <div><Result quizResult={result}/></div>
+        if (result == 'Perfekcyjny Perfekcjonista') {
+          return <div><Result quizResult={result} imgResult={content[0].img} descriptionResult={content[0].text}/></div>
+        } else if (result == 'MacGyver') {
+          return <div><Result quizResult={result} imgResult={content[1].img} descriptionResult={content[1].text}/></div>
+        } else if (result == 'Pan Nie da się') {
+          return <div><Result quizResult={result} imgResult={content[2].img} descriptionResult={content[2].text}/></div>
+        } else {
+          return <div><Result quizResult={result} imgResult={content[3].img} descriptionResult={content[3].text}/></div>
+        }
+        // return <div><Result quizResult={result}/></div>
 
 
 
