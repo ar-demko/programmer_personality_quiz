@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import questions from './quizQuestions';
 import content from './resultContent';
 import {Result} from './result.jsx';
-// import {Intro} from './intro.jsx';
-// import {QuestionCounter} from './questionCount.jsx';
+import {Intro} from './intro.jsx';
+import {QuestionCounter} from './questionCounter.jsx';
 
 export class Quiz extends React.Component {
   constructor(props){
@@ -31,15 +31,6 @@ export class Quiz extends React.Component {
     }
   }
 
-  intro() {
-    return <div className='quiz-intro' style={{visibility: this.state.hidePrev}}>
-      <div className='img-intro'></div>
-      <h1>Jakim typem programisty jesteś?</h1>
-      <p>Sprawdź się - rozwiąż Quiz!</p>
-      <button className='start-button' onClick={this.handleClikButtonStart}>Start</button>
-    </div>
-  }
-
   handleClickAnswer = (e) => {
     let type = e.target.dataset.type;
     if (type === 'Perfekcjonista') {this.answersCount.programmer1+=1;}
@@ -50,19 +41,15 @@ export class Quiz extends React.Component {
     console.log(e.target.dataset.type, this.answersCount);
   }
 
-
   render() {
 
     if (this.state.hidePrev == 'visible' ) {
-      return <div>{this.intro()}</div>
+      return <Intro styleIntro={{visibility: this.state.hidePrev}} onClickStart={this.handleClikButtonStart}/>
     } else if (this.state.counter < questions.length) {
         const questionOption = questions[this.state.counter];
         const answerOptions = questions[this.state.counter].answers;
       return <div className='quiz' style={{visibility: this.state.showNext}}>
-        <div className='quiz-header'>
-          <p className='counter-question'>pytanie {this.state.counter + 1} z 8</p>
-          <h2 className='question'><span key={questionOption.id}>{questionOption.question}</span></h2>
-        </div>
+        <QuestionCounter counterQuestion={this.state.counter + 1} keyQuestion={questionOption.id} currentQuestion={questionOption.question}/>
         <div className='answers' >{answerOptions.map((answerOption, i) => {
           return <button className='button-answer' data-type={answerOption.type} key={i} onClick={this.handleClickAnswer}>{answerOption.content}</button>
         })}
@@ -87,3 +74,23 @@ export class Quiz extends React.Component {
     }
   }
 }
+
+/*
+  // return <div>{this.intro()}</div>
+
+intro() {
+  return <div className='quiz-intro' style={{visibility: this.state.hidePrev}}>
+    <div className='img-intro'></div>
+    <h1>Jakim typem programisty jesteś?</h1>
+    <p>Sprawdź się - rozwiąż Quiz!</p>
+    <button className='start-button' onClick={this.handleClikButtonStart}>Start</button>
+  </div>
+}
+*/
+
+/*
+<div className='quiz-header'>
+  <p className='counter-question'>pytanie {this.state.counter + 1} z 8</p>
+  <h2 className='question'><span key={questionOption.id}>{questionOption.question}</span></h2>
+</div>
+*/

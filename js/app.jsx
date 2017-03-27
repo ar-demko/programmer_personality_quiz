@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import './style.scss';
 import {Quiz} from './components/quiz.jsx';
 import {Result} from './components/result.jsx';
+import questions from './components/quizQuestions';
+import content from './components/resultContent';
 
 class App extends React.Component{
   render(){
