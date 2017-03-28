@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import questions from './quizQuestions';
-import content from './resultContent';
+import questions from '../api/quizQuestions';
+import content from '../api/resultContent';
 
 export class Result extends React.Component {
   render(){
