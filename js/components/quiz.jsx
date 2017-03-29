@@ -42,7 +42,6 @@ export class Quiz extends React.Component {
   }
 
   render() {
-
     if (this.state.hidePrev == 'visible' ) {
       return <Intro styleIntro={{visibility: this.state.hidePrev}} onClickStart={this.handleClikButtonStart}/>
     } else if (this.state.counter < questions.length) {
@@ -70,27 +69,6 @@ export class Quiz extends React.Component {
         } else {
           return <div><Result quizResult={result} imgResult={content[3].img} descriptionResult={content[3].text}/></div>
         }
-
     }
   }
 }
-
-/*
-  // return <div>{this.intro()}</div>
-
-intro() {
-  return <div className='quiz-intro' style={{visibility: this.state.hidePrev}}>
-    <div className='img-intro'></div>
-    <h1>Jakim typem programisty jesteś?</h1>
-    <p>Sprawdź się - rozwiąż Quiz!</p>
-    <button className='start-button' onClick={this.handleClikButtonStart}>Start</button>
-  </div>
-}
-*/
-
-/*
-<div className='quiz-header'>
-  <p className='counter-question'>pytanie {this.state.counter + 1} z 8</p>
-  <h2 className='question'><span key={questionOption.id}>{questionOption.question}</span></h2>
-</div>
-*/
