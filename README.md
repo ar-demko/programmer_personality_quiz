@@ -4,4 +4,4 @@
 
 I used React, ECMAScript 6, Sass and webpack
 
-View project at
+View project at https://ar-demko.github.io/programmer_personality_quiz/
