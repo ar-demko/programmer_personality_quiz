@@ -5,7 +5,7 @@ module.exports = [
   },
   {
     img: 'img-result img-2',
-    text: 'Znajdzie rozwiązanie każdego problemu. Uwielbiany przez klientów (niekoniecznie przez managerów). Nie przejmuje się za bardzo (żeby nie powiedzieć, że w ogóle) jakością kodowania. Nienawidzi poprawiania błędów w kodach stworzonych przez innych. Użyje taśmy klejącej, spinacza biurowego oraz sznurówki, jeśli zajdzie taka konieczność. Źle współpracuje z Perfekcjonistą.'
+    text: 'Znajdzie rozwiązanie każdego problemu. Uwielbiany przez klientów (niekoniecznie przez managerów). Nie przejmuje się za bardzo (żeby nie powiedzieć, że w ogóle) jakością kodowania. Nienawidzi poprawiania błędów w kodzie stworzonym przez innych. Użyje taśmy klejącej, spinacza biurowego oraz sznurówki, jeśli zajdzie taka konieczność. Źle współpracuje z Perfekcjonistą.'
   },
   {
     img: 'img-result img-3',

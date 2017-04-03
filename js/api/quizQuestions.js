@@ -97,15 +97,15 @@ module.exports = [
       },
       {
         type: 'MacGyver',
-        content: 'Szybko znajdujesz kilka doraźnych sposobów.'
+        content: 'Szybko znajduję kilka doraźnych sposobów.'
       },
       {
         type: 'Pan "Nie da się"',
-        content: 'Pytasz, dlaczego to ty masz go naprawić.'
+        content: 'Pytam, dlaczego to ja mam go naprawić.'
       },
       {
         type: 'Perfekcjonista',
-        content: 'Poprawiasz błędy i przy okazji wprowadzasz kilka optymalizacji w kodzie'
+        content: 'Poprawiam błędy i przy okazji wprowadzam kilka optymalizacji w kodzie'
       }
     ]
   },
