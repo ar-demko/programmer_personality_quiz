@@ -1,7 +1,10 @@
+$tablet: '(min-width: 768px)';
+$desktop: '(min-width: 1024px)';
+
 * {
 	margin: 0;
 	padding: 0;
-	box-sizing : border-box;
+	box-sizing: border-box;
 }
 
 html {
@@ -16,9 +19,6 @@ body {
 	background-position: right;
 	font-family: 'Raleway', 'Arial', sans-serif;
 }
-
-$tablet: '(min-width: 768px)';
-$desktop: '(min-width: 1024px)';
 
 .container {
   max-width: 1200px;
@@ -101,7 +101,7 @@ $desktop: '(min-width: 1024px)';
 	height: 90vh;
 	padding: 2.5rem;
 	@media #{$tablet} {
-		height: 80vh;
+		height: 57vh;
 		background-color: rgba(255, 252, 185, .5);
 		border-radius: 5px;
 	}
